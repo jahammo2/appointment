@@ -1,0 +1,145 @@
+/*************************************************************
+***** BODY, GENERAL, AND RESET *********
+*************************************************************/
+@import url('reset.css');
+
+body,
+html {
+	width: 100%;
+	height: 100%;
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, rgb(71, 159, 121)),
+	color-stop(1, rgb(36, 99, 111))
+	);
+}
+
+.wrapper {
+	width: 400px;
+	height: 650px;
+	margin: 50px auto 0;
+	background: white;
+	padding: 0 .4em .5em;
+}
+
+/*************************************************************
+***** TITLE DIV *********
+*************************************************************/
+
+.title-div {
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	padding: .5em .25em;
+	width: 89%;
+	font-size: 1.5em;
+	margin: 0 auto;
+}
+
+/*************************************************************
+***** SEARCH DIV *********
+*************************************************************/
+
+.search-div {
+	position: relative;
+}
+
+.search-input {
+	width: 85%;
+	padding: .5em;
+	margin: 0 auto;
+	display: block;
+	
+}
+
+.search-submit-button {
+	position: absolute;
+	top: 5px;
+	right: 6%;
+	border: none;
+	background: transparent;
+	outline: none;
+}
+
+/*************************************************************
+***** UL *********
+*************************************************************/
+
+ul {
+	width: 89%;
+	margin: 0 auto 0 5.5%;
+}
+
+/*************************************************************
+***** LI *********
+*************************************************************/
+
+.appointment-list-item {
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;	
+	margin-top: 2%;
+	border: 1px solid;
+	height: 50px;
+	text-align: center;
+}
+
+.time-weather-div {
+/*	width: 24%;	*/
+	border: 1px solid;
+	-webkit-flex: 1;
+}
+
+.time-span {
+	border: 1px solid;
+}
+
+.title-place-div {
+	border: 1px solid;
+/*	width: 66%;*/
+	-webkit-flex: 2.5;
+}
+
+.li-title-span {
+	padding-top: 2%;
+}
+
+.place-span {
+	padding-bottom: 3%;
+}
+
+.trash-div {
+	width: 8%;
+	border: 1px solid;
+	text-align: right;
+}
+
+.fa-trash-o {
+	margin-top: 48%;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+/******************** DEATS PAGE *******************************/
+
+
+
+/******************** APPOINTMENTS PAGE *******************************/
+
+
+
+
+
+
+

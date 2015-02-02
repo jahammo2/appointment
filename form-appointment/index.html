@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/jquery-1.11.2.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Title</title>
+  </head>
+  <body>
+    
+    <div class="wrapper"></div>
+
+    <script type="schmoo" id="main-screen">
+    	<div class="title-div">
+	    	<span class="logo-span">G</span>
+	    	<span class="title-span">appointments</span>
+	    	<button class="new-appt-button">+</button>
+    	</div>
+    	<div class="search-div">
+    		<input class="search-input" type="text">
+    		<button class="search-submit-button"><i class="fa fa-search"></i></button>		
+    	</div>
+    	<div class="list">
+    		<ul>
+    			<li class="appointment-list-item">
+    				<div class="column time-weather-div">
+    					<span class="time-span">3:00</span>
+    					<span class="weather-span">sunny</span>
+    				</div>
+    				<div class="column title-place-div">
+    					<span class="li-title-span">doctor</span>
+    					<span class="place-span">somewhere</span>
+    				</div>
+    				<div class="trash-div">
+    					<i class="fa fa-trash-o"></i>
+    				</div>
+    			</li>
+    		</ul>
+    	</div>
+    </script>
+
+    <script type="text/html" id="new-appointment">
+    	<div class="title-div appt-title-div">
+    		<button class="back-button">&lt;</button>
+    		<span class="title-span">New Appointment</span>
+    	</div>
+    	 <div class="appt-name-div">
+	    	<form class="new-appointment-form" action="">
+	    		<div class="appt-name-div">
+	    			<span class="appt-name-label-span">title</span>
+					<input class="appt-name-input" type="text">
+	    		</div>
+	    		<div class="appt-street-div">
+	    			<span class="appt-street-label-span">street</span>
+					<input class="appt-street-input" type="text">
+	    		</div>	
+	    		<div class="city-st-div">
+	    			<div class="city-div">
+	    				<span class="city-title">city</span>
+	    				<input class="city-title-input" type="text">
+	    			</div>
+	    			<span class="appt-street-label-span">street</span>
+					<input class="appt-street-input" type="text">	    			
+	    			<select class="state-choice" name="" id="">
+	    				<option value="">NC</option>
+	    				<option value="">SC</option>
+	    			</select>
+	    		</div>	
+	    		<div class="appt-date-div">
+	    			<span class="appt-date-label-span">date</span>
+					<span class="appt-date-span">example</span>
+					<input class="date-appear" type="checkbox">
+	    		</div>
+	    		<div class="appt-time-category-div">
+	    			<span class="appt-street-label-span">time</span>
+					<input class="appt-street-input" type="text">
+					<span>category</span>
+	    		</div>
+	    		<div="cancel-save-div">
+	    			<button class="cancel-button">cancel</button>
+	    			<button class="submit-button">submit</button>
+	    		</div>	    		
+	    	</form>
+    	</div>
+    </script>
+
+    <script type="bamboo" id="edit-appointment">
+
+    	<div class="title-div appt-title-div">
+        <button class="back-button">&lt;</button>
+        <span class="title-span">Edit Appointment</span>
+        <button class="trash-button">trash</button>
+      </div>
+      <div class="appt-name-div">
+        <form class="new-appointment-form" action="">
+          <div class="appt-name-div">
+            <span class="appt-name-label-span">title</span>
+          <input class="appt-name-input" type="text">
+          </div>
+          <div class="appt-street-div">
+            <span class="appt-street-label-span">street</span>
+          <input class="appt-street-input" type="text">
+          </div>  
+          <div class="city-st-div">
+            <div class="city-div">
+              <span class="city-title">city</span>
+              <input class="city-title-input" type="text">
+            </div>
+            <span class="appt-street-label-span">street</span>
+          <input class="appt-street-input" type="text">           
+            <select class="state-choice" name="" id="">
+              <option value="">NC</option>
+              <option value="">SC</option>
+            </select>
+          </div>  
+          <div class="appt-date-div">
+            <span class="appt-date-label-span">date</span>
+          <span class="appt-date-span">example</span>
+          <input class="date-appear" type="checkbox">
+          </div>
+          <div class="appt-time-category-div">
+            <span class="appt-street-label-span">time</span>
+          <input class="appt-street-input" type="text">
+          <span>category</span>
+          </div>
+          <div="cancel-save-div">
+            <button class="cancel-button">cancel</button>
+            <button class="submit-button">submit</button>
+          </div>          
+        </form>
+      </div>
+
+    </script>
+
+    <script type="shamoo" id="deats">
+
+    	<div class="title-div">
+	    	<button class="back-button">&lt;</button>
+	    	<button class="edit-button">edit</button>
+    	</div>
+    	<div class="deats-div">
+			<div class="deats-title-span">title</div>
+			<div class="deats-date-time-span">date</div>
+    		<div class="map">map</div>
+    		<div class="weather">weather</div>
+    	</div>
+
+    </script>
+
+  <script src="js/main.js"></script>
+  </body>
+</html>
