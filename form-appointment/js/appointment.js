@@ -1,14 +1,14 @@
-app.Appointment = function(spec) {
+function Appointment(spec) {
   return {
     title: spec.title,
     date: spec.date,
     street: spec.street,
     city: spec.city,
     state: spec.state,
-    apptId: spec.ApptId
+    apptId: spec.apptId,
 
     equal: function(otherAppt) {
-      reutnr this.apptId === otherAppt.apptId;
+      return this.apptId === otherAppt.apptId;
     },
 
     getCityStateDisplay: function() {
@@ -27,4 +27,5 @@ app.Appointment = function(spec) {
       return this.date.getTime();
     }
   }
+  
 }
