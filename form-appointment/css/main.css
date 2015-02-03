@@ -285,7 +285,7 @@ ul {
 .cancel-save-div {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;	
 }
 
