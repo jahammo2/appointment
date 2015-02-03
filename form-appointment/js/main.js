@@ -1,9 +1,15 @@
 $(function() {
 	var wrapper = $('.wrapper'); // identifying the main display element in a variable
+<<<<<<< HEAD
 	var screenManager = ScreenManager(wrapper);
 	var apptStore = ObjectStore(); // instancing an an object store to manage our appts
+=======
+	// var apptStore = ObjectStore(); // instancing an an object store to manage our appts
 
-	wrapper.html($("#main-screen").html()); // setting the default display to the main screen
+	// wrapper.html($("#main-screen").html());
+	wrapper.html($("#new-appointment").html());
+>>>>>>> dbba756af534f0fe65078c1619b1bafde6b667fa
+
 
 	wrapper.on('click', '.new-appt-button', function() { // making the new appt button open the new appt screen
 		screenManager.displayNew();
