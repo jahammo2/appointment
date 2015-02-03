@@ -1,6 +1,6 @@
 $(function() {
 	var wrapper = $('.wrapper'); // identifying the main display element in a variable
-	var apptStore = ObjectStore(); // instancing an an object store to manage our appts
+	// var apptStore = ObjectStore(); // instancing an an object store to manage our appts
 
 	// wrapper.html($("#main-screen").html());
 	wrapper.html($("#new-appointment").html());
