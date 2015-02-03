@@ -52,7 +52,7 @@ $(function() {
 
 	function createNewAppt() {
 		return Appointment({ title: $('.appt-name-input').val(),
-													date: new Date();, // TODO make this real
+													date: new Date(), // TODO make this real
 													street: $('.appt-street-input').val(),
 													city: $('.city-title-input').val(),
 													state: $('.state-choice').val(),
