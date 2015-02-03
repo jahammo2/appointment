@@ -294,6 +294,7 @@ ul {
 	color: #5E4F55;	
 	border: none;
 	border-radius: 5% / 17%;
+	margin-right: 5%;
 }
 
 .submit-button {
@@ -301,6 +302,7 @@ ul {
 	color: white;
 	border: none;
 	border-radius: 5% / 17%;
+	margin-left: 5%;
 }
 
 
