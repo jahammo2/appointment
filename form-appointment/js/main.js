@@ -1,7 +1,8 @@
 $(function() {
 	var wrapper = $('.wrapper');
 
-	wrapper.html($("#main-screen").html());
+	// wrapper.html($("#main-screen").html());
+	wrapper.html($("#new-appointment").html());
 
 	wrapper.on('click', '.new-appt-button', function() {
 		wrapper.html($('#new-appointment').html());
