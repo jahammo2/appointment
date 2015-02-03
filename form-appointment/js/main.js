@@ -2,7 +2,9 @@ $(function() {
 	var wrapper = $('.wrapper'); // identifying the main display element in a variable
 	var apptStore = ObjectStore(); // instancing an an object store to manage our appts
 
-	wrapper.html($("#main-screen").html()); // setting the default display to the main screen
+	// wrapper.html($("#main-screen").html());
+	wrapper.html($("#new-appointment").html());
+
 
 	wrapper.on('click', '.new-appt-button', function() { // making the new appt button open the new appt screen
 		wrapper.html($('#new-appointment').html());
