@@ -17,6 +17,7 @@ body {
 	color-stop(0, #489F77),
 	color-stop(1, #256471)
 );
+	position: relative;
 }
 
 .wrapper {
@@ -27,6 +28,7 @@ body {
 	padding: 0 .4em .5em;
 	font-family: helvetica;
 	color: black;
+	position: relative;
 }
 
 .column {
@@ -182,7 +184,7 @@ ul {
 	padding-bottom: 6%;
 }
 
-.trash-div {
+.icon-div {
 	width: 4%;
 	text-align: center;
 }
@@ -240,7 +242,6 @@ ul {
 ***** NEW APPOINTMENT FORM *********
 *************************************************************/
 
-
 .appt-input {
 	height: 4%;
 	border: none;
@@ -274,8 +275,8 @@ ul {
 }
 
 .city-title-input {
-	width: 50%;
-	margin-right: 3%;	
+	width: 48%;
+	margin-right: 4%;	
 }
 
 .appt-time-input {
@@ -289,21 +290,237 @@ ul {
   flex-wrap: wrap;	
 }
 
-.cancel-button {
-	background: #b5bbbc;
-	color: #5E4F55;	
+.cancel-save {
 	border: none;
 	border-radius: 5% / 17%;
+	font-size: 1.08em;
+	padding: 2.5% 7%;	
+}
+
+.cancel-button {
+	background: #c6c6c6;
+	color: #5E4F55;	
 	margin-right: 5%;
 }
 
 .submit-button {
 	background: #159696;
 	color: white;
-	border: none;
-	border-radius: 5% / 17%;
 	margin-left: 5%;
 }
+
+/*************************************************************
+***** DROPDOWN MENUS *********
+*************************************************************/
+
+.appt-select {
+	border: none;
+	outline: none;
+	background: #EDEDF4;
+	font-family: helvetica;
+	-webkit-border-radius: 5% / 17%;
+	        border-radius: 5% / 17%;
+	height: 36px;
+	box-shadow: 0 0 1px 0 #606060;	
+	font-size: 1.2em;
+	padding: 6px;
+	padding-right: 28px;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+    color: #606060;
+}
+
+.appt-label {position:relative}
+.appt-label:after {
+    content:'<>';
+    letter-spacing: 8px;
+    font:11px "Consolas", monospace;
+    color:#aaa;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform:rotate(90deg);
+    right:-6px; top:-1px;
+    margin: 0 0 0px 0;
+    padding:0 0px 2px 7px;
+    border-bottom:1px solid #ddd;
+    position:absolute;
+    pointer-events:none;
+}
+
+.appt-label:before {
+    content:'';
+    right:0px; 
+    top:-10px;
+    width:20px; 
+    height:34px;
+    background:#EDEDF4;
+    position:absolute;
+    pointer-events:none;
+    display:block;
+    -webkit-border-top-right-radius: 15%;
+            border-top-right-radius: 15%;
+    -webkit-border-bottom-right-radius: 15%;
+            border-bottom-right-radius: 15%;
+}
+
+.appt-time-input {
+	width: 20%;
+	margin-left: 40px;
+}
+
+.appt-select-time {
+/*	padding-right: 14px;*/
+	padding-right: 26px;
+}
+
+.appt-label-time {
+	margin-right: 14px;
+}
+
+.appt-label-time:before {
+	right: 5px;
+}
+
+.appt-label-time:after {
+	right: -1px;
+}
+
+.time-pmam-label:after {
+	right: 0px;
+}
+
+.time-pmam-label:before {
+	right: 6px;
+}
+
+.appt-select-category {
+	padding-right: 0;
+}
+
+/*************************************************************
+***** EDIT APPOINTMENT FORM *********
+*************************************************************/
+
+.edit-appt-title-span {
+	padding-right: 7%;
+}
+
+.edit-trash-icon {
+	margin-top: 120%;
+	margin-left: -350%;
+}
+
+/*************************************************************
+***** DEATS PAGE *********
+*************************************************************/
+
+.deats-wrapper {
+	width: 80%;
+	height: 60%;
+	background: white;
+	box-shadow: 0 0 1px 1px gray;
+}
+
+.deats-edit-icon {
+	cursor: pointer;
+	color: white;
+}
+
+.deats-title-div {
+	height: 55px;
+	width: 100%;
+	margin-left: 0;
+	background: #159696;
+}
+
+.deats-back-button {
+	margin-top: -1%;
+	margin-left: 6%;
+	width: 12%;
+}
+
+.deats-date-time-span,
+.deats-title-span {
+	padding: 2%;	
+}
+
+.deats-icon-div {
+	margin-right: 10%;
+	margin-top: 4%;
+}
+
+.deats-title-span {
+	padding-top: 5%;
+	padding-bottom: 0.5%;
+	margin-top: 4%;
+	font-size: 1.4em;
+	font-weight: bold;
+}
+
+.deats-date-time-span {
+	padding-top: 1%;
+	font-size: 1.2em;
+	margin-bottom: 2%;
+}
+
+.map,
+.weather {
+	height:37.4%;
+	background: lightyellow;
+}
+
+.weather {
+	background: lightgreen;
+}
+
+.deats-div {
+	margin: 8% auto 0;
+	height: 70%;
+	width: 83%;
+	background: #EDEDF4;
+	text-align: center;
+}
+
+/*************************************************************
+***** DEATS ON FRONT PAGE DYNAMIC APPEARANCE*********
+*************************************************************/
+
+.deats-wrapper {
+	position: absolute;
+	width: 20%;
+	height: 15%;
+	top: 30%;
+	right: 38%;
+	z-index: 10;
+	visibility: hidden;
+}
+
+.black-overlay {
+	width: 100%;
+	height: 115%;
+	z-index: 5;
+	background: black;
+	opacity: .7;
+	position: absolute;
+	margin-top: -50px;
+	margin-bottom: -500px;
+/*	visibility: hidden;*/
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
