@@ -13,7 +13,7 @@ function ObjectStore() {
         collection.push(obj);
         return true;
       }
-
+      alert('ben sucks at making unique ids. what a dick');
       return false;
     },
 
@@ -28,18 +28,10 @@ function ObjectStore() {
     },
 
     replace: function (originalObj, newObj) {
-      if (originalObj.equal(newObj)) {
-        collection[collection.indexOf(originalObj)] = newObj;
-        return true;
-      } else if (self.exists(newObj)) {
-        return false;
-      } else {
-        collection[collection.indexOf(originalObj)] = newObj;
-        return true;
-      }
+      self.remove(originalObj);
+      self.add(newObj);
     }
-
-  };
+  }
 
   return self;
 

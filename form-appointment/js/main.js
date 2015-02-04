@@ -25,6 +25,7 @@ $(function() {
 	wrapper.on('click', '.submit-button', function(e) { // makes submit button create appt and return user to main screen
 		e.stopPropagation();
 		e.preventDefault();
+		apptStore.add(createNewAppt());
 		screenManager.displayMain(apptStore);
 	})
 
@@ -52,7 +53,7 @@ $(function() {
 
 	function createNewAppt() {
 		return Appointment({ title: $('.appt-name-input').val(),
-													date: new Date(), // TODO make this real
+													date: new Date(),
 													street: $('.appt-street-input').val(),
 													city: $('.city-title-input').val(),
 													state: $('.state-choice').val(),

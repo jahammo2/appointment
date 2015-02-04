@@ -5,7 +5,7 @@ function Appointment(spec) {
     street: spec.street,
     city: spec.city,
     state: spec.state,
-    apptId: spec.apptId,
+    apptId: spec.apptId, // TODO: this needs to be a private attribute
 
     equal: function(otherAppt) {
       return this.apptId === otherAppt.apptId;
@@ -20,12 +20,12 @@ function Appointment(spec) {
     },
 
     getTimeDisplay: function() {
-      return this.date.toLocaleTimeString();
+      return this.date.getHours() + ':' + this.date.getMinutes();
     },
 
     getTimeSortNum: function() {
       return this.date.getTime();
     }
   }
-  
+
 }
