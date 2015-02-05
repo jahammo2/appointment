@@ -187,13 +187,16 @@ ul {
 .icon-div {
 	width: 4%;
 	text-align: center;
+	z-index: 50;
+	position: relative;
 }
 
 .fa-trash-o {
 	margin-top: 220%;
 	margin-left: -120%;
 	cursor: pointer;
-	z-index: 100;
+	z-index: 1000000;
+	position: absolute;
 }
 
 /******************** DEATS PAGE *******************************/
