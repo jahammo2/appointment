@@ -309,6 +309,10 @@ ul {
 	margin-left: 5%;
 }
 
+.appt-date-label-input {
+	/*border: none;*/
+}
+
 /*************************************************************
 ***** DROPDOWN MENUS *********
 *************************************************************/
@@ -454,7 +458,7 @@ ul {
 }
 
 .deats-title-span {
-	padding-top: 5%;
+	padding-top: 4%;
 	padding-bottom: 0.5%;
 	margin-top: 4%;
 	font-size: 1.4em;
@@ -464,12 +468,17 @@ ul {
 .deats-date-time-span {
 	padding-top: 1%;
 	font-size: 1.2em;
-	margin-bottom: 2%;
+}
+
+.deats-full-date-time-span {
+/*	padding-top: 1%;*/
+	font-size: 1.2em;
+	margin-bottom: 4%;
 }
 
 .map,
 .weather {
-	height:37.4%;
+	height:33.5%;
 	background: lightyellow;
 }
 
@@ -490,13 +499,21 @@ ul {
 *************************************************************/
 
 .deats-wrapper {
+	font-family: helvetica;
+	color: #5E4F55;
 	position: absolute;
-	width: 20%;
-	height: 15%;
-	top: 30%;
-	right: 38%;
 	z-index: 10;
+	width: 15%;
+	height: 30%;	
+	top: 40%;
+	right: 43%;
 	visibility: hidden;
+
+/*	height: 59%;
+	width: 30%;
+	top: 30%;
+	right: 35%;*/
+
 }
 
 .black-overlay {
@@ -508,7 +525,7 @@ ul {
 	position: absolute;
 	margin-top: -50px;
 	margin-bottom: -500px;
-/*	visibility: hidden;*/
+	visibility: hidden;
 }
 
 
