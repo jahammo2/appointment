@@ -222,7 +222,11 @@ $(function() {
 
 	function createNewAppt() {
 		return Appointment({ title: $('.appt-name-input').val(),
+<<<<<<< HEAD
+													date: new Date(), // TODO make this real
+=======
 													date: new Date(),
+>>>>>>> master
 													street: $('.appt-street-input').val(),
 													city: $('.city-title-input').val(),
 													state: $('.state-choice').val(),
