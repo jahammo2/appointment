@@ -27,6 +27,16 @@ function ObjectStore() {
       });
     },
 
+    removeById: function (id) {
+      for (var i = 0; i < collection.length; ++i) {
+        if (collection[i].getId() === id) {
+          this.remove(collection[i]);
+          return true;
+        }
+      }
+      return false;
+    },
+
     replace: function (originalObj, newObj) {
       self.remove(originalObj);
       self.add(newObj);
