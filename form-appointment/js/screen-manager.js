@@ -80,9 +80,9 @@ function ScreenManager(container) {
 
     $('.deats-wrapper').css({
       'visibility': 'hidden',
-      'height': '30%',
+      'height': '10%',
       'width': '15%',
-      'top': '40%',
+      'top': '12%',
       'right': '43%',
       'transition': '0s'
     })
@@ -101,9 +101,9 @@ function ScreenManager(container) {
     $('.deats-wrapper').css({
       'visibility': 'visible',
       'height': '59%',
-      'width': '30%',
-      'top': '30%',
-      'right': '35%',
+      'width': '80%',
+      'top': '12%',
+      'right': '8%',
       'transition': '.1s'
     })
 
@@ -115,6 +115,7 @@ function ScreenManager(container) {
 
   return {
     showMainScreen: function(apptStore) {
+      hideModal();
       container.html($('#main-screen').html());
       populateMainScreen(apptStore);
     },

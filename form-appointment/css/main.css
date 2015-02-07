@@ -279,7 +279,12 @@ ul {
 	flex-wrap: wrap;*/
 }
 
-
+.appt-time-category-div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;		
+}
 
 .appt-time-input {
 	width: 45%;
@@ -412,7 +417,7 @@ ul {
 }
 
 .appt-label-time {
-	margin-right: 14px;
+/*	margin-right: 14px;*/
 }
 
 .appt-label-time:before {
@@ -421,6 +426,10 @@ ul {
 
 .appt-label-time:after {
 	right: -1px;
+}
+
+.time-pmam-label {
+	margin-right: 1%;
 }
 
 .time-pmam-label:after {
@@ -506,8 +515,8 @@ ul {
 	margin-bottom: 4%;
 }
 
-.map,
-.weather {
+.deats-background {
+	text-align: center;
 	height:33.5%;
 	background: lightyellow;
 }
@@ -567,8 +576,6 @@ ul {
 
 
 
-
-
 /*************************************************************
 ***** DEATS ON FRONT PAGE DYNAMIC APPEARANCE*********
 *************************************************************/
@@ -579,17 +586,17 @@ ul {
 	position: absolute;
 	z-index: 10;
 	width: 15%;
-	height: 30%;	
-	top: 40%;
+	height: 10%;	
+	top: 12%;
 	right: 43%;
 	visibility: hidden;
 	box-shadow: 0 0 4px #5E4F55;
-/*
-	height: 59%;
+
+/*	height: 59%;
 	width: 80%;
 	top: 12%;
-	right: 10%;
-*/
+	right: 8%;*/
+
 }
 
 .black-overlay {

@@ -21,10 +21,7 @@ screenManager.showMainScreen(apptStore);
 		lng: -0.1276831,
 	});
 
-	$('#map').css({
-		'position': 'absolute',
-		'left': '-10000px'
-	});
+	hideMap();
 
 
 wrapper.on('click', '.new-appt-button', function(e) { // making the new appt button open the new appt screen
@@ -63,6 +60,8 @@ wrapper.on('click', '.new-appt-button', function(e) { // making the new appt but
 			}
 		});
 
+		hideMap();
+
 		screenManager.showMainScreen(apptStore);
 
 	})
@@ -70,23 +69,24 @@ wrapper.on('click', '.new-appt-button', function(e) { // making the new appt but
 })
 
 wrapper.on('click', '.back-button', function() { // making back buttons return the user to main
-	hideModal();
+	hideMap();
 	screenManager.showMainScreen(apptStore);
 })
 
 wrapper.on('click', '.cancel-button', function(e) { // makes cancel button (new/edit screens) return user to main
 	e.stopPropagation();
 	e.preventDefault();
+	hideMap();
 	screenManager.displayMain(apptStore);
 })
 
 $('.deats-back-button').click(function () {
-	hideModal();
+	hideMap();
 	screenManager.showMainScreen(apptStore);
 })
 
 $('.deats-edit-icon').click(function(e) {
-	hideModal();
+	hideMap();
 	screenManager.showEditScreen($(event.target).data());
 	$('.submit-button').click(function(e) { // makes submit button create appt and return user to main screen
 
@@ -131,6 +131,7 @@ $('.deats-edit-icon').click(function(e) {
 
 $('.submit-button').click(function(e) { // makes submit button create appt and return user to main screen
 
+	hideMap();
 	e.stopPropagation();
 	e.preventDefault();
 
@@ -166,10 +167,21 @@ $('.submit-button').click(function(e) { // makes submit button create appt and r
 
 })
 
-
+// if ($('.deats-title-span').length < 18) {
+// 			$('.deats-background').css({
+// 				'height': '36.5%'
+// 			})
+// 		}
 
 	wrapper.on('click', '.click-4-deats', function(event) {
 		screenManager.showDetailScreen($(event.target).closest('.appointment-list-item').data());
+
+		if ($('.deats-title-span').length < 18) {
+			$('.deats-background').css({
+				'height': '36.5%'
+			})
+		}
+
 
 		$('#map').css({ // to bring the map back which was displaying when it wasn't allowed to
 			'position': 'relative',
@@ -203,46 +215,19 @@ $('.submit-button').click(function(e) { // makes submit button create appt and r
 												})
 	}
 
-	function hideModal() {
-		$('.black-overlay').css({
-			'visibility': 'hidden'
-		})
-
-		$('.deats-wrapper').css({
-			'visibility': 'hidden',
-			'height': '30%',
-			'width': '15%',
-			'top': '40%',
-			'right': '43%',
-			'transition': '0s'
-		})
-
-		$('.deats-div').css({
-			'height': '30%',
-			'transition': '0s'
-		})
+	function hideMap() {
+		$('#map').css({
+			'position': 'absolute',
+			'left': '-10000px'
+		});
 	}
 
-	function showModal() {
-		$('.black-overlay').css({
-			'visibility': 'visible'
-		})
-
-		$('.deats-wrapper').css({
-			'visibility': 'visible',
-			'height': '59%',
-			'width': '30%',
-			'top': '30%',
-			'right': '35%',
-			'transition': '.1s'
-		})
-
-		$('.deats-div').css({
-			'height': '70%',
-			'transition': '.1s'
-		})
+	function showMap() {
+		$('#map').css({ // to bring the map back which was displaying when it wasn't allowed to
+			'position': 'relative',
+			'left': '0px'
+		});
 	}
-
 
 // wrapper.on('click', '.main-header-new-appt', function() {
 //   screenManager.showNewScreen();
