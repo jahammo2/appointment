@@ -7,6 +7,9 @@ function Appointment(spec) {
     street: spec.street,
     city: spec.city,
     state: spec.state,
+    hours: spec.hours,
+    minutes: spec.minutes,
+    amPm: spec.amPm,
 
     equal: function(otherAppt) {
       return this.getId() === otherAppt.getId();
@@ -21,7 +24,12 @@ function Appointment(spec) {
     },
 
     getTimeDisplay: function() {
-      return this.date.getHours() + ':' + this.date.getMinutes();
+      var timeStr = this.hours + ':' + this.minutes;
+      if (this.amPm === '12') {
+        return timeStr += ' pm';
+      } else {
+        return timeStr += ' am';
+      }
     },
 
     getTimeSortNum: function() {
