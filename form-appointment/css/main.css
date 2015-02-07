@@ -216,7 +216,7 @@ ul {
 
 .appt-title-div {
 	padding-top: 0;
-	height: 66px;
+	height: 8%;
 }
 
 .back-svg {
@@ -236,10 +236,6 @@ ul {
 	padding-right: 13%;
 }
 
-/*************************************************************
-***** TITLE *********
-*************************************************************/
-
 .appt-name-div {
 	width: 89%;
 	margin: 0 auto;
@@ -258,8 +254,8 @@ ul {
 	padding: 2%;
 	font-size: 1.09em;
 	margin-left: 0;
-	width: 71%;
-	margin-top: -3%;
+	width: 70%;
+/*	margin-top: -3%;*/
 }
 
 .appt-white-blocks {
@@ -283,10 +279,7 @@ ul {
 	flex-wrap: wrap;*/
 }
 
-.city-title-input {
-	width: 48%;
-	margin-right: 4%;	
-}
+
 
 .appt-time-input {
 	width: 45%;
@@ -322,6 +315,30 @@ ul {
 	/*border: none;*/
 }
 
+.city-div {
+/*	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;*/
+}
+
+.city-title-input {
+	width: 48%;
+	margin-right: 4%;	
+}
+
+.city-title {
+/*	width: 28%;*/
+}
+
+.state-choice {
+
+}
+
+.date-block-div {
+/*	margin: 0;*/
+}
+
 /*************************************************************
 ***** DROPDOWN MENUS *********
 *************************************************************/
@@ -346,7 +363,10 @@ ul {
     color: #606060;
 }
 
-.appt-label {position:relative}
+.appt-label {
+	position:relative
+}
+
 .appt-label:after {
     content:'<>';
     letter-spacing: 8px;
@@ -356,7 +376,8 @@ ul {
     -moz-transform:rotate(90deg);
     -ms-transform:rotate(90deg);
     transform:rotate(90deg);
-    right:-6px; top:-1px;
+    right:-6px; 
+    top:-1px;
     margin: 0 0 0px 0;
     padding:0 0px 2px 7px;
     border-bottom:1px solid #ddd;
