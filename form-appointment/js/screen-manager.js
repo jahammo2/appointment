@@ -1,50 +1,72 @@
-function ScreenManager(display) {
-  var mainDisplay = display;
+function ScreenManager(container) {
 
-  function populateMain(apptList) {
-    var apptArr = apptList.query();
-    sortByDate(apptArr);
+  function clearMainScreen() {
+    $('.main-list-container').html('')
+  }
+
+  function populateMainScreen(apptStore) {
+    var apptArr = apptStore.query();
 
     for (var i = 0; i < apptArr.length; ++i) {
-      $('.appt-list-actual').append($('#appt-listing').html());
-      $('.appt-listing').last().val(apptArr[i].apptId)
-      $('.time-span').last().text(apptArr[i].getTimeDisplay());
-      $('.weather-span').last().text('weather');
+      $('.appt-list').append($('.appt-listing').html());
+      $('.appointment-list-item').last().data(apptArr[i]);
+      $('.time-span').last().text(apptArr[i].date.getHours() + ':' + apptArr[i].date.getMinutes());
       $('.li-title-span').last().text(apptArr[i].title);
       $('.place-span').last().text(apptArr[i].street);
+
+      $('.delete-div').last().click(function (event) {
+        event.stopPropagation();
+        apptStore.remove($(event.target).closest('.appointment-list-item').data());
+        $('.appt-list').html('');
+        populateMainScreen(apptStore);
+      });
+
     }
   }
 
-  function sortByDate(apptArr) {
-    apptArr.sort( function (b, a) {
-      if (b.getTimeSortNum() > a.getTimeSortNum()) {
-        return 1;
-      }
-      if (b.getTimeSortNum() < a.getTimeSortNum()) {
-        return -1;
-      }
-      return 0;
+  function populateDetails(appt) {
+
+    $('.deats-title-span').text(appt.title);
+    $('.deats-date-time-span').text(appt.date.toDateString());
+    $('.deats-date-time-span').text(appt.date.toDateString());
+    // $('.deats-full-date-time-span').text()
+    // $('.deets-time-display').text(appt.date.toTimeString());
+    // $('.deets-address-display').text(appt.street);
+    // $('.deets-city-st-display').text(appt.getCityStateDisplay());
+    appt.getWeatherObject(function(data) {
+      $('.deets-weather-display').text(data.list[getTimeDif(appt)].weather[0].main);
+    })
+    // appt.getWeatherObject(function(data) {
+    //   $('.rain-chance-bottom').text(data.list[getTimeDif(appt)].main.temp);
+    // })
+    appt.getWeatherObject(function(data) {
+      $('.temp-bottom').text(data.list[getTimeDif(appt)].main.temp);
     })
   }
 
+  function getTimeDif(appt) {
+    var currentTime = new Date();
+    return Math.floor(((appt.date.getTime() - currentTime.getTime())/3600000)/3);
+  }
+
   return {
-    displayMain: function(apptList) {
-      mainDisplay.html($("#main-screen").html());
-      populateMain(apptList);
+    showMainScreen: function(apptStore) {
+      container.html($('#main-screen').html());
+      populateMainScreen(apptStore);
     },
 
-    displayNew: function () {
-      mainDisplay.html($('#new-appointment').html());
+    showNewScreen: function() {
+      container.html($('#new-appointment').html());
     },
 
-    displayEdit: function(appt) {
-      mainDisplay.html($('#edit-appointment').html());
-      // populateApptEdit(appt); // TODO write this function
+    showEditScreen: function(appt) {
+      container.html($('#edit-appointment').html());
+      // populateEditScreen(appt); // TODO: make this function
+      // setEditHeading(); // TODO: make this function
     },
 
-    displayDeats: function(appt) {
-      mainDisplay.html($('#deats').html());
-      // populateDeats(appt); // TODO write this function
+    showDetailScreen: function(appt) {
+      populateDetails(appt);
     }
   }
 }

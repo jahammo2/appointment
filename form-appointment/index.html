@@ -1,15 +1,21 @@
- 
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <script src="js/jquery-1.11.2.min.js"></script>
     <script src="js/jquery-1.11.2.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script src="js/maps.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400' rel='stylesheet' type='text/css'>
+
     <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/responsive.css">
     <title>Title</title>
   </head>
   <body>
@@ -49,8 +55,18 @@
         <div class="deats-div-components deats-title-span">doctor appointment</div>
         <div class="deats-div-components deats-date-time-span">date 112 423</div>
         <div class="deats-div-components deats-full-date-time-span">date 112 423</div>
-        <div class="deats-div-components map">map</div>
-        <div class="deats-div-components weather">weather</div>
+        <div class="deats-div-components map deats-div-components-map" id="map">map</div>
+        <div class="deats-div-components weather">
+          <div class="white-overlay"></div>
+          <div class="deats-weather-components deats-weather-temp">
+            <p class="p-top temp-top">Temperature:</p>
+            <p class="temp-bottom">26&#176;</p>
+          </div>
+          <div class="deats-weather-components deats-weather-rain">
+            <p class="p-top rain-chance-top">Chance of Rain:</p>
+            <p class="rain-chance-bottom">40%</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -148,24 +164,63 @@
         <button class="search-submit-button"><i class="fa fa-search"></i></button>    
       </div>
       <div class="list">
-        <ul>
-          <li class="appointment-list-item">
-            <div class="column time-weather-div">
-              <span class="time-span">3:00pm</span>
-              <span class="weather-span">sunny</span>
-            </div>
-            <div class="column title-place-div">
-              <span class="li-title-span">doctor</span>
-              <span class="place-span">somewhere</span>
+        <ul class="appt-list">
+
+        </ul>
+      </div>
+    </script>
+
+<!--           <li class="appointment-list-item">
+            <div class="click-4-deats">
+              <div class="column time-weather-div">
+                <span class="time-span">3:00pm</span>
+                <span class="weather-span">sunny</span>
+              </div>
+              <div class="column title-place-div">
+                <span class="li-title-span">doctor</span>
+                <span class="place-span">somewhere</span>
+              </div>
             </div>
             <div class="icon-div">
               <i class="fa fa-trash-o main-trash"></i>
             </div>
           </li>
-        </ul>
-      </div>
-    </script>
+          <li class="appointment-list-item">
+            <div class="click-4-deats">
+              <div class="column time-weather-div">
+                <span class="time-span">f3:00pm</span>
+                <span class="weather-span">sunny</span>
+              </div>
+              <div class="column title-place-div">
+                <span class="li-title-span">doctor</span>
+                <span class="place-span">somewhere</span>
+              </div>
+            </div>
+            <div class="icon-div">
+              <i class="fa fa-trash-o main-trash"></i>
+            </div>
+          </li>
+ -->
 
+    <script type="scrizipt" class="appt-listing">
+
+          <li class="appointment-list-item">
+            <div class="click-4-deats">
+              <div class="column time-weather-div">
+                <span class="time-span">T:ME</span>
+                <span class="weather-span">WEATHER</span>
+              </div>
+              <div class="column title-place-div">
+                <span class="li-title-span">TITLE</span>
+                <span class="place-span">ADDRESS</span>
+              </div>
+            </div>
+            <div class="icon-div delete-div">
+              <i class="fa fa-trash-o main-trash"></i>
+            </div>
+          </li>
+
+    </script>
 
 
 
@@ -195,16 +250,67 @@
           </div>
           <div class="appt-listdivs appt-street-div">
             <span class="appt-white-blocks appt-street-label-span">street</span>
-            <input class="appt-input appt-street-input" type="text">
+            <input class="appt-input appt-street-input" id="appt-street-input" type="text">
           </div>  
           <div class="appt-listdivs city-st-div">           
             <div class="appt-listdivs city-div">
-              <span class="appt-white-blocks city-title">city</span>
-              <input class="appt-input city-title-input" type="text">
+
+                <span class="appt-white-blocks city-title">city</span>
+                <input class="appt-input city-title-input" type="text">
+
               <label class="appt-label state-choice-label">                      
                 <select class="appt-select state-choice" name="" id="">
-                  <option selected value="">NC</option>
-                  <option value="">SC</option>
+                  <option class="state-option" value="">..</option>
+                  <option class="state-option" value="al">AL</option>
+                  <option class="state-option" value="ak">AK</option>
+                  <option class="state-option" value="az">AZ</option>
+                  <option class="state-option" value="ar">AR</option>
+                  <option class="state-option" value="ca">CA</option>
+                  <option class="state-option" value="co">CO</option>
+                  <option class="state-option" value="ct">CT</option>
+                  <option class="state-option" value="de">DE</option>
+                  <option class="state-option" value="fl">FL</option>
+                  <option class="state-option" value="ga">GA</option>
+                  <option class="state-option" value="hi">HI</option>
+                  <option class="state-option" value="id">ID</option>
+                  <option class="state-option" value="il">IL</option>
+                  <option class="state-option" value="in">IN</option>
+                  <option class="state-option" value="ia">IA</option>
+                  <option class="state-option" value="ks">KS</option>
+                  <option class="state-option" value="ky">KY</option>
+                  <option class="state-option" value="la">LA</option>
+                  <option class="state-option" value="me">ME</option>
+                  <option class="state-option" value="md">MD</option>
+                  <option class="state-option" value="ma">MA</option>
+                  <option class="state-option" value="mi">MI</option>
+                  <option class="state-option" value="mn">MN</option>
+                  <option class="state-option" value="ms">MS</option>
+                  <option class="state-option" value="mo">MO</option>
+                  <option class="state-option" value="mt">MT</option>
+                  <option class="state-option" value="ne">NE</option>
+                  <option class="state-option" value="nv">NV</option>
+                  <option class="state-option" value="nh">NH</option>
+                  <option class="state-option" value="nj">NJ</option>
+                  <option class="state-option" value="nm">NM</option>
+                  <option class="state-option" value="ny">NY</option>
+                  <option class="state-option" value="nc">NC</option>
+                  <option class="state-option" value="nd">ND</option>
+                  <option class="state-option" value="oh">OH</option>
+                  <option class="state-option" value="ok">OK</option>
+                  <option class="state-option" value="or">OR</option>
+                  <option class="state-option" value="pa">PA</option>
+                  <option class="state-option" value="ri">RI</option>
+                  <option class="state-option" value="sc">SC</option>
+                  <option class="state-option" value="sd">SD</option>
+                  <option class="state-option" value="tn">TN</option>
+                  <option class="state-option" value="tx">TX</option>
+                  <option class="state-option" value="ut">UT</option>
+                  <option class="state-option" value="vt">VT</option>
+                  <option class="state-option" value="va">VA</option>
+                  <option class="state-option" value="wa">WA</option>
+                  <option class="state-option" value="wv">WV</option>
+                  <option class="state-option" value="wi">WI</option>
+                  <option class="state-option" value="wy">WY</option>
                 </select>
               </label>
             </div>
@@ -300,8 +406,57 @@
               <input class="appt-input city-title-input" type="text">
               <label class="appt-label state-choice-label">                      
                 <select class="appt-select state-choice" name="" id="">
-                  <option selected value="">NC</option>
-                  <option value="">SC</option>
+                  <option class="state-option" value="">..</option>
+                  <option class="state-option" value="al">AL</option>
+                  <option class="state-option" value="ak">AK</option>
+                  <option class="state-option" value="az">AZ</option>
+                  <option class="state-option" value="ar">AR</option>
+                  <option class="state-option" value="ca">CA</option>
+                  <option class="state-option" value="co">CO</option>
+                  <option class="state-option" value="ct">CT</option>
+                  <option class="state-option" value="de">DE</option>
+                  <option class="state-option" value="fl">FL</option>
+                  <option class="state-option" value="ga">GA</option>
+                  <option class="state-option" value="hi">HI</option>
+                  <option class="state-option" value="id">ID</option>
+                  <option class="state-option" value="il">IL</option>
+                  <option class="state-option" value="in">IN</option>
+                  <option class="state-option" value="ia">IA</option>
+                  <option class="state-option" value="ks">KS</option>
+                  <option class="state-option" value="ky">KY</option>
+                  <option class="state-option" value="la">LA</option>
+                  <option class="state-option" value="me">ME</option>
+                  <option class="state-option" value="md">MD</option>
+                  <option class="state-option" value="ma">MA</option>
+                  <option class="state-option" value="mi">MI</option>
+                  <option class="state-option" value="mn">MN</option>
+                  <option class="state-option" value="ms">MS</option>
+                  <option class="state-option" value="mo">MO</option>
+                  <option class="state-option" value="mt">MT</option>
+                  <option class="state-option" value="ne">NE</option>
+                  <option class="state-option" value="nv">NV</option>
+                  <option class="state-option" value="nh">NH</option>
+                  <option class="state-option" value="nj">NJ</option>
+                  <option class="state-option" value="nm">NM</option>
+                  <option class="state-option" value="ny">NY</option>
+                  <option class="state-option" value="nc">NC</option>
+                  <option class="state-option" value="nd">ND</option>
+                  <option class="state-option" value="oh">OH</option>
+                  <option class="state-option" value="ok">OK</option>
+                  <option class="state-option" value="or">OR</option>
+                  <option class="state-option" value="pa">PA</option>
+                  <option class="state-option" value="ri">RI</option>
+                  <option class="state-option" value="sc">SC</option>
+                  <option class="state-option" value="sd">SD</option>
+                  <option class="state-option" value="tn">TN</option>
+                  <option class="state-option" value="tx">TX</option>
+                  <option class="state-option" value="ut">UT</option>
+                  <option class="state-option" value="vt">VT</option>
+                  <option class="state-option" value="va">VA</option>
+                  <option class="state-option" value="wa">WA</option>
+                  <option class="state-option" value="wv">WV</option>
+                  <option class="state-option" value="wi">WI</option>
+                  <option class="state-option" value="wy">WY</option>
                 </select>
               </label>
             </div>
@@ -361,11 +516,17 @@
       </div>
     </script>
 
+  <script src="js/jordan.js"></script>  
   <script src="js/essentials.js"></script>
-  <script src="js/essentials.js"></script>
+  <script src="js/screen-manager.js"></script>
+  <script src="js/appointment.js"></script>
+  <script src="js/object-store.js"></script>
+  <script src="js/main.js"></script>
   <script src="js/moment.js"></script>
-  <script src="js/jordan.js"></script>
+
+
   </body>
 </html>
 
 
+<!-- fasd  <script src="js/jordan.js"></script>fasd -->
