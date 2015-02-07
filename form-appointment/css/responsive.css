@@ -1,0 +1,86 @@
+@media screen and (min-width:600px) {
+
+	html,
+	body {
+		height: 0;
+		min-height: 100%;
+	}
+		
+	.wrapper {
+		margin: 50px auto;
+		height: 650px;
+		width: 400px;
+	}
+
+	.appt-select {
+		height: 36px;
+		padding-right: 28px;
+	}
+
+	.city-title-input {
+		width: 40%;
+	}
+
+	.appt-input {
+		margin-top: 0;
+	}
+
+	.appt-white-blocks {
+		margin-right: -1%;
+	}
+
+	.black-overlay {
+		height: 115%;
+	}
+
+	.deats-wrapper {
+		top: 30%;
+		width: 30%;
+		right: 35%;
+	}
+
+
+
+
+
+
+
+
+
+}
+
+@media screen and (max-width: 395px) {
+
+	.appt-select {
+		height: 33px;
+		padding-top: 4px;
+	}
+	
+	.city-title-input {
+		width: 44%;
+	}
+
+	.title-span {
+		font-size: 87%;
+		margin-top: 3.6%;
+	}
+
+	.appt-label:after {
+	    top:1px;
+	    padding:0 0px 2px 5px;
+	}
+
+	.appt-label:before {
+	    top:-8px;
+	    height:32px;
+	}
+
+}
+
+
+
+
+
+
+
+
