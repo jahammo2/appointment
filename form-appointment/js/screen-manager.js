@@ -147,19 +147,42 @@ function ScreenManager(container) {
       'visibility': 'visible'
     })
 
-    $('.deats-wrapper').css({
-      'visibility': 'visible',
-      'height': '59%',
-      'width': '80%',
-      'top': '12%',
-      'right': '10%',
-      'transition': '.1s'
-    })
+    if (window.innerWidth > 550) {
 
-    $('.deats-div').css({
-      'height': '70%',
-      'transition': '.1s'
-    })
+      var marginNumber = (window.innerWidth - 400) / 2;
+      console.log(marginNumber);
+
+      $('.deats-wrapper').css({
+        'visibility': 'visible',
+        'height': '59%',
+        'width': '300px',
+        'top': '20%',
+        'right': (50 + marginNumber) + 'px',
+        'transition': '.1s'
+      })
+
+      $('.deats-div').css({
+        'height': '70%',
+        'transition': '.1s'
+      })
+
+    } else {
+
+      $('.deats-wrapper').css({
+        'visibility': 'visible',
+        'height': '59%',
+        'width': '80%',
+        'top': '12%',
+        'right': '10%',
+        'transition': '.1s'
+      })
+
+      $('.deats-div').css({
+        'height': '70%',
+        'transition': '.1s'
+      })
+
+    }
   }
 
 
