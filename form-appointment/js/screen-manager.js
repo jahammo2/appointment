@@ -65,7 +65,24 @@ function ScreenManager(container) {
       $('.temp-bottom').text(Math.round(toFarrenheit(data.list[getTimeDif(appt)].main.temp)) + '°');
     })
     appt.getWeatherObject(function(data) {
-      $('.rain-chance-bottom').text(data.list[getTimeDif(appt)].main.description);
+    $('.rain-chance-bottom').text((data.list[getTimeDif(appt)].main.humidity)+'%');
+    })
+
+    appt.getWeatherObject(function(data) {
+      if(data.list[getTimeDif(appt)].weather[0].main === "Clear") {
+        $('.weather').css('background-image', 'url(img/sunny.png)')
+      } else if (data.list[getTimeDif(appt)].weather[0].main === "Thunderstorm") {
+        $('.weather').css('background-image', 'url(img/thunderstorm.png)')
+      } else if (data.list[getTimeDif(appt)].weather[0].main === "Rain") {
+        $('.weather').css('background-image', 'url(img/rain.png)')
+      } else if (data.list[getTimeDif(appt)].weather[0].main === "Snow") {
+        $('.weather').css('background-image', 'url(img/snow.png)')
+      } else if (data.list[getTimeDif(appt)].weather[0].main === "Clouds") {
+        $('.weather').css('background-image', 'url(img/partly-cloudy.png)')
+      } else {
+        $('.weather').css('background-image', 'url(img/cloudy.png)')
+      }
+
     })
 
     $('.deats-edit-icon').data(appt);

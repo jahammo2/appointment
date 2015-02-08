@@ -5,6 +5,10 @@ var screenManager = ScreenManager(wrapper);
 
 screenManager.showMainScreen(apptStore);
 
+window.onresize = function () {
+	resizeCityInput();
+}
+
 var map = new GMaps({
 	el: '#map',
 	lat: 51.5073346,
@@ -15,6 +19,7 @@ var map = new GMaps({
 wrapper.on('click', '.new-appt-button', function(e) { // making the new appt button open the new appt screen
 	e.preventDefault();
 	screenManager.showNewScreen();
+	resizeCityInput()
 
 	$('.submit-button').click(function(e) { // makes submit button create appt and return user to main screen
 
@@ -82,6 +87,7 @@ $('.deats-back-button').click(function () {
 
 $('.deats-edit-icon').click(function(e) {
 	screenManager.showEditScreen($(event.target).data());
+	resizeCityInput()
 	$('.submit-button').click(function(e) { // makes submit button create appt and return user to main screen
 
 		e.stopPropagation();
@@ -188,4 +194,37 @@ function sortLogic(a, b) {
 		return -1;
 	}
 	return 0;
+}
+
+function resizeCityInput () {
+
+	function callEl (el) {
+		return {
+			elName: function () {
+				return document.querySelector(el);
+			},
+
+			elWidth: function () {
+				return document.querySelector(el).offsetWidth;
+			}
+		}
+	}
+
+	var cityDivWidth = callEl('.city-div').elWidth();
+	var cityInputWidth = callEl('.city-title-input').elWidth();
+	var cityInput = callEl('.city-title-input').elName();
+	var cityTitleWidth = callEl('.city-title').elWidth();
+	var stateLabelWidth = callEl('.state-choice-label').elWidth();
+	
+	// .08 is because I have 2% padding and I need to account for it twice
+	var divPadding = cityDivWidth * .08;
+	// 20px comes from the margin right of the city-title-input
+	var marginLeftNumber = cityDivWidth - cityInputWidth - 20 - cityTitleWidth - stateLabelWidth
+	- divPadding;
+	// .007 comes from Moneypenny, I mean, an experimented number to line up my divs
+	var extraSpace = cityDivWidth * .007;
+	var widthNumber = marginLeftNumber + cityInputWidth + extraSpace 
+	cityInput.style.width = widthNumber + 'px';
+
+
 }
