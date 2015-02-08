@@ -121,7 +121,7 @@ function ScreenManager(container) {
   }
 
   function showModal() {
-    $('#map').css({ // to bring the map back which was displaying when it wasn't allowed to
+    $('#map').css({
       'position': 'relative',
       'left': '0px'
     });

@@ -175,3 +175,13 @@ $('.deats-edit-icon').click(function(e) {
 			return true;
 		}
 	}
+
+	function sortLogic(a, b) {
+		if (b.date.getTime() > a.date.getTime()) {
+			return 1;
+		}
+		if (b.date.getTime() < a.date.getTime()) {
+			return -1;
+		}
+		return 0;
+	}
