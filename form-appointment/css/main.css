@@ -25,10 +25,12 @@ body {
 	height: 100%;
 	margin: 0 auto;
 	background: white;
-	padding: 0 .4em .5em;
+	padding: 0 0em .5em;
 	font-family: helvetica;
 	color: black;
 	position: relative;
+	background: url('../img/background.png');
+	background-size: cover;
 }
 
 .column {
@@ -49,10 +51,8 @@ body {
 	justify-content: space-between;
 	flex-wrap: wrap;
 	padding: 2% 0em 0;
-	width: 103.2%;
-	font-size: 1.5em;
+	font-size: 150%;
 	margin: 0 auto;
-	margin-left: -1.6%;
 	margin-bottom: 3.8%;
 	font-family: helvetica;
 	font-weight: bold;
@@ -68,11 +68,10 @@ body {
 .new-appt-button {
 	border: none;
 	background: transparent;
-/*	font-size: 1.2em;*/
 	margin-right: 5.3%;
+	margin-top: -1%;
 }
 .logo-span {
-/*	width: 15%;*/
 	-webkit-flex: .5;
 }
 
@@ -114,7 +113,7 @@ body {
 
 ul {
 	width: 88.5%;
-	margin: 4% auto 0 5.5%;
+	margin: 4% auto 0 auto;
 }
 
 /*************************************************************
@@ -128,7 +127,7 @@ ul {
 	justify-content: space-between;
 	flex-wrap: wrap;	
 	margin-top: 2%;
-	height: 80px;
+	height: 10%;
 	text-align: center;
 	font-weight: 300;
 	border: 1px solid;
@@ -138,16 +137,14 @@ ul {
 }
 
 .time-weather-div {
-/*	width: 24%;	*/
 	-webkit-flex: 1;
 }
 
 .time-span {
 	padding: 8.9% 0;
 	background: #159696;
-/*	border: 1px solid #5F839C;*/
 	box-shadow: 0 0 1px #5F839C;
-	font-size: 1.4em;
+	font-size: 140%;
 	font-weight: bold;
 	color: white;
 	
@@ -155,9 +152,8 @@ ul {
 
 .weather-span {
 	padding: 8.9% 0;
-/*	border: 1px solid #5F839C;*/
 	box-shadow: 0 0 1px #5F839C;
-	font-size: 1.3em;
+	font-size: 130%;
 	background: #b5bbbc;
 }
 
@@ -174,16 +170,15 @@ ul {
 }
 
 .title-place-div {
-/*	width: 66%;*/
 	-webkit-flex: 2.1;
-	font-size: 1.15em;
+	font-size: 115%;
 	text-align: left;
 	padding-left: 4%;
 }
 
 .li-title-span {
 	padding-top: 5%;
-	font-size: 1.6em;
+	font-size: 160%;
 	font-weight: bold;
 	color: black;
 }
@@ -206,10 +201,6 @@ ul {
 	z-index: 1000000;
 	position: absolute;
 }
-
-/******************** DEATS PAGE *******************************/
-
-
 
 /******************** APPOINTMENTS PAGE *******************************/
 
@@ -235,7 +226,7 @@ ul {
 }
 
 .appt-title-span {
-	margin-top: 5%;
+	margin-top: 3.4%;
 	padding-right: 13%;
 }
 
@@ -258,7 +249,6 @@ ul {
 	font-size: 1.09em;
 	margin-left: 0;
 	width: 70%;
-/*	margin-top: -3%;*/
 }
 
 .appt-white-blocks {
@@ -276,13 +266,14 @@ ul {
 
 .appt-listdivs {
 	margin: 8% auto;
-/*	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	flex-wrap: wrap;*/
 }
 
-
+.appt-time-category-div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;		
+}
 
 .appt-time-input {
 	width: 45%;
@@ -314,32 +305,15 @@ ul {
 	margin-left: 5%;
 }
 
-.appt-date-label-input {
-	/*border: none;*/
-}
-
-.city-div {
-/*	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	flex-wrap: wrap;*/
-}
-
 .city-title-input {
-	width: 48%;
-	margin-right: 4%;	
+	width: 1px;
+	margin-right: 20px;	
 }
 
-.city-title {
-/*	width: 28%;*/
-}
-
-.state-choice {
-
-}
-
-.date-block-div {
-/*	margin: 0;*/
+.error-message-fill {
+	margin-top: 3%;
+	color: red;
+	text-align: center;
 }
 
 /*************************************************************
@@ -380,7 +354,7 @@ ul {
     -ms-transform:rotate(90deg);
     transform:rotate(90deg);
     right:-6px; 
-    top:-1px;
+    top:9px;
     margin: 0 0 0px 0;
     padding:0 0px 2px 7px;
     border-bottom:1px solid #ddd;
@@ -391,7 +365,7 @@ ul {
 .appt-label:before {
     content:'';
     right:0px; 
-    top:-10px;
+    top:0px;
     width:20px; 
     height:34px;
     background:#EDEDF4;
@@ -404,38 +378,21 @@ ul {
             border-bottom-right-radius: 15%;
 }
 
-.appt-time-input {
-	width: 20%;
-	margin-left: 40px;
+.state-choice-label:after {
+	top: 0px;
+	padding:0 0px 2px 7px;
 }
 
-.appt-select-time {
-/*	padding-right: 14px;*/
-	padding-right: 26px;
+.state-choice-label:before {
+	top: -9px;
 }
 
-.appt-label-time {
-	margin-right: 14px;
+.appt-label-category:before {
+	right: 2px;
 }
 
-.appt-label-time:before {
-	right: 5px;
-}
-
-.appt-label-time:after {
-	right: -1px;
-}
-
-.time-pmam-label:after {
-	right: 0px;
-}
-
-.time-pmam-label:before {
-	right: 6px;
-}
-
-.appt-select-category {
-	padding-right: 0;
+.appt-label-category {
+	margin-right: 2%;
 }
 
 /*************************************************************
@@ -450,6 +407,8 @@ ul {
 	margin-top: 120%;
 	margin-left: -350%;
 }
+
+/******************** DEATS PAGE *******************************/
 
 /*************************************************************
 ***** DEATS PAGE *********
@@ -480,16 +439,19 @@ ul {
 	width: 12%;
 }
 
-.deats-date-time-span,
-.deats-title-span {
-	padding: 2%;	
-}
-
 .deats-icon-div {
 	margin-right: 10%;
 	margin-top: 4%;
 }
 
+/*************************************************************
+***** DEATS-DIV *********
+*************************************************************/
+
+.deats-date-time-span,
+.deats-title-span {
+	padding: 2%;	
+}
 .deats-title-span {
 	padding-top: 4%;
 	padding-bottom: 0.5%;
@@ -504,15 +466,13 @@ ul {
 }
 
 .deats-full-date-time-span {
-/*	padding-top: 1%;*/
 	font-size: 1.2em;
 	margin-bottom: 4%;
 }
 
-.map,
-.weather {
+.deats-background {
+	text-align: center;
 	height:33.5%;
-	background: lightyellow;
 }
 
 .weather {
@@ -567,11 +527,6 @@ ul {
 	left: 0;
 }
 
-
-
-
-
-
 /*************************************************************
 ***** DEATS ON FRONT PAGE DYNAMIC APPEARANCE*********
 *************************************************************/
@@ -582,17 +537,11 @@ ul {
 	position: absolute;
 	z-index: 10;
 	width: 15%;
-	height: 30%;	
-	top: 40%;
+	height: 10%;	
+	top: 12%;
 	right: 43%;
 	visibility: hidden;
 	box-shadow: 0 0 4px #5E4F55;
-/*
-	height: 59%;
-	width: 80%;
-	top: 12%;
-	right: 10%;
-*/
 }
 
 .black-overlay {

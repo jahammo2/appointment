@@ -7,6 +7,9 @@ function Appointment(spec) {
     street: spec.street,
     city: spec.city,
     state: spec.state,
+    hours: spec.hours,
+    minutes: spec.minutes,
+    amPm: spec.amPm,
 
     equal: function(otherAppt) {
       return this.getId() === otherAppt.getId();
@@ -21,7 +24,32 @@ function Appointment(spec) {
     },
 
     getTimeDisplay: function() {
-      return this.date.getHours() + ':' + this.date.getMinutes();
+      var timeStr = '';
+      if (this.hours === '0') {
+        timeStr += '12' + ':' + this.minutes;
+      } else {
+        timeStr += this.hours + ':' + this.minutes;
+      }
+      if (this.amPm === '12') {
+        return timeStr += ' pm';
+      } else {
+        return timeStr += ' am';
+      }
+    },
+
+    getTimeFrame: function() {
+      var today = new Date();
+      if (today.toDateString() === this.date.toDateString()) {
+        return this.getTimeDisplay();
+      } else if (today.getFullYear() === this.date.getFullYear()
+                  && today.getMonth() === this.date.getMonth()
+                  && this.date.getDate() === (today.getDate() + 1)) {
+        return 'tomorrow';
+      } else if (this.date.getTime() - today.getTime() < 604800000) {
+        return this.date.toDateString().substring(0, 3);
+      } else {
+        return this.date.toDateString().substring(4, 10);
+      }
     },
 
     getTimeSortNum: function() {
@@ -36,11 +64,14 @@ function Appointment(spec) {
         console.log(err);
         alert('Failed to connect to Weather... See console for details.');
       });
-
     },
 
     getId: function() {
       return apptId;
+    },
+
+    getSearchString: function() {
+      return this.title + this.street + this.city + this.state + this.date.toDateString();
     }
   }
 
