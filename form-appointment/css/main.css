@@ -1,0 +1,583 @@
+/*************************************************************
+***** BODY, GENERAL, AND RESET *********
+*************************************************************/
+@import url('reset.css');
+
+html,
+body {
+	width: 100%;
+	height: 100%;	
+}
+
+body {
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #489F77),
+	color-stop(1, #256471)
+);
+	position: relative;
+}
+
+.wrapper {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	background: white;
+	padding: 0 0em .5em;
+	font-family: helvetica;
+	color: black;
+	position: relative;
+	background: url('../img/background.png');
+	background-size: cover;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+/*************************************************************
+***** TITLE DIV *********
+*************************************************************/
+
+.title-div {
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	padding: 2% 0em 0;
+	font-size: 150%;
+	margin: 0 auto;
+	margin-bottom: 3.8%;
+	font-family: helvetica;
+	font-weight: bold;
+	color: black;
+	background: #FFD800;
+}
+
+.title-span {
+	-webkit-flex: 2.8;
+	margin-top: 4%;
+}
+
+.new-appt-button {
+	border: none;
+	background: transparent;
+	margin-right: 5.3%;
+	margin-top: -1%;
+}
+.logo-span {
+	-webkit-flex: .5;
+}
+
+.calender-svg {
+	width: 100%;
+	height: 15%;
+	margin-top: 1%;
+	margin-left: 38%;
+}
+
+/*************************************************************
+***** SEARCH DIV *********
+*************************************************************/
+
+.search-div {
+	position: relative;
+}
+
+.search-input {
+	width: 85%;
+	padding: .5em;
+	margin: 0 auto;
+	display: block;
+	border: 1px solid;
+}
+
+.search-submit-button {
+	position: absolute;
+	top: 4px;
+	right: 6%;
+	border: none;
+	background: transparent;
+	outline: none;
+}
+
+/*************************************************************
+***** UL *********
+*************************************************************/
+
+ul {
+	width: 88.5%;
+	margin: 4% auto 0 auto;
+}
+
+/*************************************************************
+***** LI *********
+*************************************************************/
+
+.appointment-list-item {
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;	
+	margin-top: 2%;
+	height: 10%;
+	text-align: center;
+	font-weight: 300;
+	border: 1px solid;
+	background: #EDEDF4;
+	color: #5E4F55;
+	font-family: helvetica;
+}
+
+.time-weather-div {
+	-webkit-flex: 1;
+}
+
+.time-span {
+	padding: 8.9% 0;
+	background: #159696;
+	box-shadow: 0 0 1px #5F839C;
+	font-size: 140%;
+	font-weight: bold;
+	color: white;
+	
+}
+
+.weather-span {
+	padding: 8.9% 0;
+	box-shadow: 0 0 1px #5F839C;
+	font-size: 130%;
+	background: #b5bbbc;
+}
+
+/*************************************************************
+***** MIDDLE/RIGHT CONTENTS OF LI *********
+*************************************************************/
+
+.click-4-deats {
+	width: 93%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.title-place-div {
+	-webkit-flex: 2.1;
+	font-size: 115%;
+	text-align: left;
+	padding-left: 4%;
+}
+
+.li-title-span {
+	padding-top: 5%;
+	font-size: 160%;
+	font-weight: bold;
+	color: black;
+}
+
+.place-span {
+	padding-bottom: 6%;
+}
+
+.icon-div {
+	width: 4%;
+	text-align: center;
+	z-index: 8;
+	position: relative;
+}
+
+.fa-trash-o {
+	margin-top: 220%;
+	margin-left: -120%;
+	cursor: pointer;
+	z-index: 1;
+	position: absolute;
+}
+
+/******************** APPOINTMENTS PAGE *******************************/
+
+/*************************************************************
+***** TITLE *********
+*************************************************************/
+
+.appt-title-div {
+	padding-top: 0;
+	height: 8%;
+}
+
+.back-svg {
+	width: 100%;
+	height: 15%;
+}
+
+.back-button {
+	background: transparent;
+	border: none;
+	width: 9%;
+	margin-left: 5.4%;
+}
+
+.appt-title-span {
+	margin-top: 3.4%;
+	padding-right: 13%;
+}
+
+.appt-name-div {
+	width: 89%;
+	margin: 0 auto;
+	color: #606060;
+}
+
+/*************************************************************
+***** NEW APPOINTMENT FORM *********
+*************************************************************/
+
+.appt-input {
+	height: 4%;
+	border: none;
+	box-shadow: 0 0 1px 0 #606060;
+	background: #EDEDF4;
+	padding: 2%;
+	font-size: 1.09em;
+	margin-left: 0;
+	width: 70%;
+}
+
+.appt-white-blocks {
+	box-shadow: 0 0 2px #606060;
+	padding: 2%;
+	width: 20%;
+	display: inline-block;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.3em;
+	background: white;
+	margin-right: -1.05%;
+
+}
+
+.appt-listdivs {
+	margin: 8% auto;
+}
+
+.appt-time-category-div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;		
+}
+
+.appt-time-input {
+	width: 45%;
+}
+
+.cancel-save-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;	
+}
+
+.cancel-save {
+	border: none;
+	border-radius: 5% / 17%;
+	font-size: 1.08em;
+	padding: 2.5% 7%;	
+}
+
+.cancel-button {
+	background: #c6c6c6;
+	color: #5E4F55;	
+	margin-right: 5%;
+}
+
+.submit-button {
+	background: #159696;
+	color: white;
+	margin-left: 5%;
+}
+
+.city-title-input {
+	width: 1px;
+	margin-right: 20px;	
+}
+
+.error-message-fill {
+	margin-top: 3%;
+	color: red;
+	text-align: center;
+}
+
+/*************************************************************
+***** DROPDOWN MENUS *********
+*************************************************************/
+
+.appt-select {
+	border: none;
+	outline: none;
+	background: #EDEDF4;
+	font-family: helvetica;
+	-webkit-border-radius: 5% / 17%;
+	        border-radius: 5% / 17%;
+	height: 35px;
+	box-shadow: 0 0 1px 0 #606060;	
+	font-size: 1.2em;
+	padding: 6px;
+	padding-right: 21px;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+    color: #606060;
+}
+
+.appt-label {
+	position:relative
+}
+
+.appt-label:after {
+    content:'<>';
+    letter-spacing: 8px;
+    font:11px "Consolas", monospace;
+    color:#aaa;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform:rotate(90deg);
+    right:-6px; 
+    top:9px;
+    margin: 0 0 0px 0;
+    padding:0 0px 2px 7px;
+    border-bottom:1px solid #ddd;
+    position:absolute;
+    pointer-events:none;
+}
+
+.appt-label:before {
+    content:'';
+    right:0px; 
+    top:0px;
+    width:20px; 
+    height:34px;
+    background:#EDEDF4;
+    position:absolute;
+    pointer-events:none;
+    display:block;
+    -webkit-border-top-right-radius: 15%;
+            border-top-right-radius: 15%;
+    -webkit-border-bottom-right-radius: 15%;
+            border-bottom-right-radius: 15%;
+}
+
+.state-choice-label:after {
+	top: 0px;
+	padding:0 0px 2px 7px;
+}
+
+.state-choice-label:before {
+	top: -9px;
+}
+
+.appt-label-category:before {
+	right: 2px;
+}
+
+.appt-label-category {
+	margin-right: 2%;
+}
+
+/*************************************************************
+***** EDIT APPOINTMENT FORM *********
+*************************************************************/
+
+.edit-appt-title-span {
+	padding-right: 7%;
+}
+
+.edit-trash-icon {
+	margin-top: 120%;
+	margin-left: -350%;
+}
+
+/******************** DEATS PAGE *******************************/
+
+/*************************************************************
+***** DEATS PAGE *********
+*************************************************************/
+
+.deats-wrapper {
+	width: 80%;
+	height: 60%;
+	background: white;
+	box-shadow: 0 0 1px 1px gray;
+}
+
+.deats-edit-icon {
+	cursor: pointer;
+	color: white;
+}
+
+.deats-title-div {
+	height: 55px;
+	width: 100%;
+	margin-left: 0;
+	background: #159696;
+}
+
+.deats-back-button {
+	margin-top: -1%;
+	margin-left: 6%;
+	width: 12%;
+}
+
+.deats-icon-div {
+	margin-right: 10%;
+	margin-top: 4%;
+}
+
+/*************************************************************
+***** DEATS-DIV *********
+*************************************************************/
+
+.deats-date-time-span,
+.deats-title-span {
+	padding: 2%;	
+}
+.deats-title-span {
+	padding-top: 4%;
+	padding-bottom: 0.5%;
+	margin-top: 4%;
+	font-size: 1.4em;
+	font-weight: bold;
+}
+
+.deats-date-time-span {
+	padding-top: 1%;
+	font-size: 1.2em;
+}
+
+.deats-full-date-time-span {
+	font-size: 1.2em;
+	margin-bottom: 4%;
+}
+
+.deats-background {
+	text-align: center;
+	height:33.5%;
+}
+
+.weather {
+	background: url('../img/cloudy.png');
+	-webkit-background-size: cover;
+	     -o-background-size: cover;
+	        background-size: cover;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	color: white;
+	font-size: 1.5em;
+	font-weight: bold;	
+	color: #333;
+	position: relative;
+}
+
+.deats-div {
+	margin: 8% auto 0;
+	height: 70%;
+	width: 83%;
+	background: #EDEDF4;
+	text-align: center;
+	box-shadow: 0 0 1px #5E4F55;
+}
+
+.deats-weather-components {
+	margin-top: 11.8%;
+	z-index: 11;
+}
+
+.deats-weather-temp {
+	margin-right: 4%;
+}
+
+.deats-weather-rain {
+	margin-left: 4%;
+}
+
+.p-top {
+	font-size: .2em
+}
+
+.white-overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: white;
+	opacity: .3;
+	z-index: 10;
+	left: 0;
+}
+
+/*************************************************************
+***** DEATS ON FRONT PAGE DYNAMIC APPEARANCE*********
+*************************************************************/
+
+.deats-wrapper {
+	font-family: helvetica;
+	color: #5E4F55;
+	position: absolute;
+	z-index: 10;
+	width: 15%;
+	height: 10%;	
+	top: 12%;
+	right: 43%;
+	visibility: hidden;
+	box-shadow: 0 0 4px #5E4F55;
+}
+
+.black-overlay {
+	width: 100%;
+	height: 100%;
+	z-index: 5;
+	background: black;
+	opacity: .7;
+	position: absolute;
+	margin-top: -50px;
+	margin-bottom: -500px;
+	visibility: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
