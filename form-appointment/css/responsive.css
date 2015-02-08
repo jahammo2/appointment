@@ -1,4 +1,4 @@
-@media screen and (min-width:600px) {
+@media screen and (min-width:550px) {
 
 	html,
 	body {
@@ -10,15 +10,6 @@
 		margin: 50px auto;
 		height: 650px;
 		width: 400px;
-	}
-
-	.appt-select {
-		height: 36px;
-		padding-right: 28px;
-	}
-
-	.city-title-input {
-		width: 40%;
 	}
 
 	.appt-input {
@@ -39,15 +30,9 @@
 		right: 35%;
 	}
 
-
-
-
-
-
-
-
-
 }
+
+
 
 @media screen and (max-width: 395px) {
 
@@ -55,27 +40,80 @@
 		height: 33px;
 		padding-top: 4px;
 	}
-	
-	.city-title-input {
-		width: 44%;
-	}
 
 	.title-span {
 		font-size: 87%;
 		margin-top: 3.6%;
 	}
 
-	.appt-label:after {
-	    top:1px;
-	    padding:0 0px 2px 5px;
+	.appt-title-span {
+		margin-top: 5%;
 	}
 
 	.appt-label:before {
-	    top:-8px;
 	    height:32px;
 	}
 
+	.appt-label-category {
+		width: 36%;		
+	}
+
+	.appt-label-category:after {
+		padding:0 0px 2px 5px;
+	}
+
+	.appt-select-category {
+		width: 100%;
+	}
+
+	.state-choice {
+		height: 33px;
+	}
+
+	.state-choice-label:after {
+		top: 1px;
+		padding:0 0px 2px 5px;
+	}
+
+	.state-choice-label:before {
+		top: -8px;
+	}
+
 }
+
+
+
+@media screen and (min-width: 450px) and (max-width: 550px) {
+	.state-choice {
+		padding-top: 5px;
+		height: 38px;
+	}
+
+	.state-choice-label:after {
+		top: 0px;
+		padding:0 2px 2px 8px;
+	}
+
+	.state-choice-label:before {
+		top: -9px;
+	}
+}
+
+
+
+@media screen and (max-width: 340px) {
+	.time-span {
+		font-size: 130%;
+	}
+
+	.appt-title-span {
+		margin-top: 6%;
+	}
+}
+
+
+
+
 
 
 

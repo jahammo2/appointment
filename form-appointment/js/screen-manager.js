@@ -65,7 +65,7 @@ function ScreenManager(container) {
       $('.temp-bottom').text(Math.round(toFarrenheit(data.list[getTimeDif(appt)].main.temp)) + '°');
     })
     appt.getWeatherObject(function(data) {
-      $('.rain-chance-bottom').text(data.list[getTimeDif(appt)].weather[0].description);
+      $('.rain-chance-bottom').text(data.list[getTimeDif(appt)].main.description);
     })
 
     $('.deats-edit-icon').data(appt);
@@ -135,7 +135,7 @@ function ScreenManager(container) {
       'height': '59%',
       'width': '80%',
       'top': '12%',
-      'right': '8%',
+      'right': '10%',
       'transition': '.1s'
     })
 
