@@ -190,7 +190,7 @@ ul {
 .icon-div {
 	width: 4%;
 	text-align: center;
-	z-index: 50;
+	z-index: 8;
 	position: relative;
 }
 
@@ -198,7 +198,7 @@ ul {
 	margin-top: 220%;
 	margin-left: -120%;
 	cursor: pointer;
-	z-index: 1000000;
+	z-index: 1;
 	position: absolute;
 }
 

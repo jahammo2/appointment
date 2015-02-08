@@ -44,7 +44,7 @@ function Appointment(spec) {
       } else if (today.getFullYear() === this.date.getFullYear()
                   && today.getMonth() === this.date.getMonth()
                   && this.date.getDate() === (today.getDate() + 1)) {
-        return 'tomorrow';
+        return 'tmrw';
       } else if (this.date.getTime() - today.getTime() < 604800000) {
         return this.date.toDateString().substring(0, 3);
       } else {
