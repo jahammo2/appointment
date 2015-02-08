@@ -30,8 +30,10 @@ wrapper.on('click', '.new-appt-button', function(e) { // making the new appt but
 		var dateLabelValue = dateLabel.val();
 		var newDate = moment(dateLabelValue, ['M/D/YY', 'MM/D/YY', 'MM/DD/YY','M/D/YYYY',
 			'MM/D/YYYY', 'MM/DD/YYYY']);
+		newDate.hours(Number($('.time-hours').val()) + Number($('.time-pmam').val()));
+		newDate.minutes(Number($('.time-minutes').val()));
 
-		if (!newDate.isValid()) {
+		if (!newDate.isValid() || newDate.isBefore(moment(new Date()))) {
 			alert('invalid date');
 			return;
 		}
@@ -43,7 +45,7 @@ wrapper.on('click', '.new-appt-button', function(e) { // making the new appt but
 		// $('.deats-full-date-time-span').html(newFormattedFullDate);
 		// var dateInMs = newDate.format('x');
 
-		apptStore.add(createAppt(newDate));
+		apptStore.addSort(createAppt(newDate), sortLogic);
 
 		GMaps.geocode({
 			address: $('#appt-street-input').val(),
@@ -94,14 +96,16 @@ $('.deats-edit-icon').click(function(e) {
 		var dateLabelValue = dateLabel.val();
 		var newDate = moment(dateLabelValue, ['M/D/YY', 'MM/D/YY', 'MM/DD/YY','M/D/YYYY',
 			'MM/D/YYYY', 'MM/DD/YYYY']);
+		newDate.hours(Number($('.time-hours').val()) + Number($('.time-pmam').val()));
+		newDate.minutes(Number($('.time-minutes').val()));
 
-		if (!newDate.isValid()) {
+		if (!newDate.isValid() || newDate.isBefore(moment(new Date()))) {
 			alert('invalid date');
 			return;
 		}
 
 		apptStore.remove($(event.target).data());
-		apptStore.add(createAppt(newDate));
+		apptStore.addSort(createAppt(newDate), sortLogic);
 
 		GMaps.geocode({
 			address: $('#appt-street-input').val(),
@@ -122,66 +126,66 @@ $('.deats-edit-icon').click(function(e) {
 	})
 })
 
-	wrapper.on('click', '.click-4-deats', function(event) {
-		screenManager.showDetailScreen($(event.target).closest('.appointment-list-item').data());
+wrapper.on('click', '.click-4-deats', function(event) {
+	screenManager.showDetailScreen($(event.target).closest('.appointment-list-item').data());
 
-		if ($('.deats-title-span').length < 18) {
-			$('.deats-background').css({
-				'height': '36.5%'
-			})
-		}
-
-
-		$('#map').css({ // to bring the map back which was displaying when it wasn't allowed to
-			'position': 'relative',
-			'left': '0px'
-		});
-	})
-
-
-	function newApptId() {
-		function series() {
-			return Math.floor((1 + Math.random()) * 10000).toString(16);
-		}
-
-		return series() + '-' + series() + '-' + series() + '-' + series();
+	if ($('.deats-title-span').length < 18) {
+		$('.deats-background').css({
+			'height': '36.5%'
+		})
 	}
 
-	function createAppt(newDate) {
-		// console.log(newDate.format(YYYY));
-		return Appointment({ title: $('.appt-name-input').val(),
-													street: $('.appt-street-input').val(),
-													city: $('.city-title-input').val(),
-													state: $('.state-choice').val(),
-													hours: $('.time-hours').val(),
-													minutes: $('.time-minutes').val(),
-													amPm: $('.time-pmam').val(),
-													date: new Date(Number(newDate.format('YYYY')),
-																					Number(newDate.format('MM')) - 1,
-																					Number(newDate.format('DD')),
-																					Number($('.time-hours').val()) + Number($('.time-pmam').val()),
-																					Number($('.time-minutes').val()))
-												})
+
+	$('#map').css({ // to bring the map back which was displaying when it wasn't allowed to
+		'position': 'relative',
+		'left': '0px'
+	});
+})
+
+
+function newApptId() {
+	function series() {
+		return Math.floor((1 + Math.random()) * 10000).toString(16);
 	}
 
-	function isFormValid() {
-		if ($('.appt-name-input').val() === ''
-				|| $('.appt-street-input').val() === ''
-				|| $('.city-title-input').val() === ''
-				|| $('.state-choice').val() === ''
-				|| $('.appt-date-label-input') === '') {
-			return false;
-		} else {
-			return true;
-		}
-	}
+	return series() + '-' + series() + '-' + series() + '-' + series();
+}
 
-	function sortLogic(a, b) {
-		if (b.date.getTime() > a.date.getTime()) {
-			return 1;
-		}
-		if (b.date.getTime() < a.date.getTime()) {
-			return -1;
-		}
-		return 0;
+function createAppt(newDate) {
+	// console.log(newDate.format(YYYY));
+	return Appointment({ title: $('.appt-name-input').val(),
+												street: $('.appt-street-input').val(),
+												city: $('.city-title-input').val(),
+												state: $('.state-choice').val(),
+												hours: $('.time-hours').val(),
+												minutes: $('.time-minutes').val(),
+												amPm: $('.time-pmam').val(),
+												date: new Date(Number(newDate.format('YYYY')),
+																				Number(newDate.format('MM')) - 1,
+																				Number(newDate.format('DD')),
+																				Number($('.time-hours').val()) + Number($('.time-pmam').val()),
+																				Number($('.time-minutes').val()))
+											})
+}
+
+function isFormValid() {
+	if ($('.appt-name-input').val() === ''
+			|| $('.appt-street-input').val() === ''
+			|| $('.city-title-input').val() === ''
+			|| $('.state-choice').val() === ''
+			|| $('.appt-date-label-input') === '') {
+		return false;
+	} else {
+		return true;
 	}
+}
+
+function sortLogic(a, b) {
+	if (a.date.getTime() > b.date.getTime()) {
+		return 1;
+	}
+	if (a.date.getTime() < b.date.getTime()) {
+		return -1;
+	}
+	return 0;
+}

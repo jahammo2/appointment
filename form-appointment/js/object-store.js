@@ -20,7 +20,7 @@ function ObjectStore() {
     addSort: function (obj, callback) {
       this.add(obj);
       collection.sort(callback);
-    }
+    },
 
     query: function (obj) {
       return collection;
