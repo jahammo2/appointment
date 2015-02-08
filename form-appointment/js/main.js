@@ -1,41 +1,40 @@
 
 var wrapper = $('.wrapper'); // identifying the main display element in a variable
-// var screenManager = ScreenManager(wrapper);
 var apptStore = ObjectStore(); // instancing an an object store to manage our appts
-
-// var container = $('.wrapper');
 var screenManager = ScreenManager(wrapper);
 
 screenManager.showMainScreen(apptStore);
 
-// wrapper.html($("#main-screen").html());
-// wrapper.html($("#new-appointment").html());
-
-
-	var editAppointment = $('#edit-appointment');
-	var backButton = $('.back-button');
-	var body = $('body');
-	var map = new GMaps({
-		el: '#map',
-		lat: 51.5073346,
-		lng: -0.1276831,
-	});
-
-	hideMap();
+var map = new GMaps({
+	el: '#map',
+	lat: 51.5073346,
+	lng: -0.1276831,
+});
 
 
 wrapper.on('click', '.new-appt-button', function(e) { // making the new appt button open the new appt screen
 	e.preventDefault();
 	screenManager.showNewScreen();
+
 	$('.submit-button').click(function(e) { // makes submit button create appt and return user to main screen
 
 		e.stopPropagation();
 		e.preventDefault();
 
+		if (!isFormValid()) {
+			alert('all fields are required');
+			return;
+		}
+
 		var dateLabel = $('.appt-date-label-input');
 		var dateLabelValue = dateLabel.val();
 		var newDate = moment(dateLabelValue, ['M/D/YY', 'MM/D/YY', 'MM/DD/YY','M/D/YYYY',
 			'MM/D/YYYY', 'MM/DD/YYYY']);
+
+		if (!newDate.isValid()) {
+			alert('invalid date');
+			return;
+		}
 		// var newFormattedFullDate = newDate.format('MMMM D')
 		// var newDateFromNow = newDate.fromNow()
 		// dateLabel.val(newFormattedFullDate);
@@ -60,8 +59,6 @@ wrapper.on('click', '.new-appt-button', function(e) { // making the new appt but
 			}
 		});
 
-		hideMap();
-
 		screenManager.showMainScreen(apptStore);
 
 	})
@@ -69,41 +66,39 @@ wrapper.on('click', '.new-appt-button', function(e) { // making the new appt but
 })
 
 wrapper.on('click', '.back-button', function() { // making back buttons return the user to main
-	hideMap();
 	screenManager.showMainScreen(apptStore);
 })
 
 wrapper.on('click', '.cancel-button', function(e) { // makes cancel button (new/edit screens) return user to main
-	e.stopPropagation();
 	e.preventDefault();
-	hideMap();
-	screenManager.displayMain(apptStore);
+	screenManager.showMainScreen(apptStore);
 })
 
 $('.deats-back-button').click(function () {
-	hideMap();
 	screenManager.showMainScreen(apptStore);
 })
 
 $('.deats-edit-icon').click(function(e) {
-	hideMap();
 	screenManager.showEditScreen($(event.target).data());
 	$('.submit-button').click(function(e) { // makes submit button create appt and return user to main screen
 
 		e.stopPropagation();
 		e.preventDefault();
 
+		if (!isFormValid()) {
+			alert('all fields are required');
+			return;
+		}
+
 		var dateLabel = $('.appt-date-label-input');
 		var dateLabelValue = dateLabel.val();
 		var newDate = moment(dateLabelValue, ['M/D/YY', 'MM/D/YY', 'MM/DD/YY','M/D/YYYY',
 			'MM/D/YYYY', 'MM/DD/YYYY']);
-		// var newFormattedFullDate = newDate.format('MMMM D')
-		// var newDateFromNow = newDate.fromNow()
-		// dateLabel.val(newFormattedFullDate);
-		// console.log(newDateFromNow);
-		// $('.deats-date-time-span').html(newDateFromNow + ' on');
-		// $('.deats-full-date-time-span').html(newFormattedFullDate);
-		// var dateInMs = newDate.format('x');
+
+		if (!newDate.isValid()) {
+			alert('invalid date');
+			return;
+		}
 
 		apptStore.remove($(event.target).data());
 		apptStore.add(createAppt(newDate));
@@ -126,52 +121,6 @@ $('.deats-edit-icon').click(function(e) {
 
 	})
 })
-
-// $(document).ready(function(){
-
-$('.submit-button').click(function(e) { // makes submit button create appt and return user to main screen
-
-	hideMap();
-	e.stopPropagation();
-	e.preventDefault();
-
-	var dateLabel = $('.appt-date-label-input');
-	var dateLabelValue = dateLabel.val();
-	var newDate = moment(dateLabelValue, ['M/D/YY', 'MM/D/YY', 'MM/DD/YY','M/D/YYYY',
-		'MM/D/YYYY', 'MM/DD/YYYY']);
-	// var newFormattedFullDate = newDate.format('MMMM D')
-	// var newDateFromNow = newDate.fromNow()
-	// dateLabel.val(newFormattedFullDate);
-	// console.log(newDateFromNow);
-	// $('.deats-date-time-span').html(newDateFromNow + ' on');
-	// $('.deats-full-date-time-span').html(newFormattedFullDate);
-	// var dateInMs = newDate.format('x');
-
-	apptStore.add(createAppt(newDate));
-
-	GMaps.geocode({
-		address: $('#appt-street-input').val(),
-		callback: function(results, status) {
-			if (status == 'OK') {
-				var latlng = results[0].geometry.location;
-				map.setCenter(latlng.lat(), latlng.lng());
-				map.addMarker({
-					lat: latlng.lat(),
-					lng: latlng.lng()
-				});
-			}
-		}
-	});
-
-	screenManager.showMainScreen(apptStore);
-
-})
-
-// if ($('.deats-title-span').length < 18) {
-// 			$('.deats-background').css({
-// 				'height': '36.5%'
-// 			})
-// 		}
 
 	wrapper.on('click', '.click-4-deats', function(event) {
 		screenManager.showDetailScreen($(event.target).closest('.appointment-list-item').data());
@@ -215,30 +164,14 @@ $('.submit-button').click(function(e) { // makes submit button create appt and r
 												})
 	}
 
-	function hideMap() {
-		$('#map').css({
-			'position': 'absolute',
-			'left': '-10000px'
-		});
+	function isFormValid() {
+		if ($('.appt-name-input').val() === ''
+				|| $('.appt-street-input').val() === ''
+				|| $('.city-title-input').val() === ''
+				|| $('.state-choice').val() === ''
+				|| $('.appt-date-label-input') === '') {
+			return false;
+		} else {
+			return true;
+		}
 	}
-
-	function showMap() {
-		$('#map').css({ // to bring the map back which was displaying when it wasn't allowed to
-			'position': 'relative',
-			'left': '0px'
-		});
-	}
-
-// wrapper.on('click', '.main-header-new-appt', function() {
-//   screenManager.showNewScreen();
-// })
-
-// wrapper.on('blur', '.month-select', function() {
-//   if ($('.month-select').val() === '2') {
-//     $('.day-select').html($('.28-day-month').html());
-//   } else if ($('.month-select').val() === '4' || $('.month-select').val() === '6' || $('.month-select').val() === '9' || $('.month-select').val() === '11') {
-//     $('.day-select').html($('.30-day-month').html());
-//   } else if ($('.month-select').val() !== '') {
-//     $('.day-select').html($('.31-day-month').html());
-//   }
-// })

@@ -1,7 +1,11 @@
 function ScreenManager(container) {
 
+  ///////////////////////
+ // PRIVATE FUNCTIONS //
+///////////////////////
+
   function clearMainScreen() {
-    $('.main-list-container').html('')
+    $('.appt-list').html('')
   }
 
   function populateMainScreen(apptStore) {
@@ -11,10 +15,7 @@ function ScreenManager(container) {
       var currentAppt = apptArr[i]; // this is because lines 15-16 would not work with apptArr[i]
       $('.appt-list').append($('.appt-listing').html());
       $('.appointment-list-item').last().data(apptArr[i]);
-      $('.time-span').last().text(apptArr[i].getTimeDisplay());
-      currentAppt.getWeatherObject(function(data) {
-        $('.weather-span').text(Math.round(toFarrenheit(data.list[getTimeDif(currentAppt)].main.temp)) + '°');
-      })
+      $('.time-span').last().text(apptArr[i].getTimeFrame());
       $('.li-title-span').last().text(apptArr[i].title);
       $('.place-span').last().text(apptArr[i].street);
 
@@ -25,8 +26,29 @@ function ScreenManager(container) {
         populateMainScreen(apptStore);
       });
 
+      currentAppt.getWeatherObject(function(data) {
+        $('.weather-span').text(Math.round(toFarrenheit(data.list[getTimeDif(currentAppt)].main.temp)) + '°');
+      })
     }
   }
+
+  function initializeSearchBar(apptStore) {
+    $('.search-input').keyup(function() {
+      clearMainScreen();
+      var apptArr = apptStore.query();
+      tempStore = ObjectStore();
+
+      for (var i = 0; i < apptArr.length; ++i) {
+        if (apptArr[i].getSearchString().indexOf($('.search-input').val()) >= 0) {
+          tempStore.add(apptArr[i]);
+        }
+      }
+      clearMainScreen();
+      populateMainScreen(tempStore);
+
+    })
+  }
+
 
   function populateDetails(appt) {
 
@@ -74,6 +96,11 @@ function ScreenManager(container) {
   }
 
   function hideModal() {
+    $('#map').css({
+      'position': 'absolute',
+      'left': '-10000px'
+    });
+
     $('.black-overlay').css({
       'visibility': 'hidden'
     })
@@ -94,6 +121,11 @@ function ScreenManager(container) {
   }
 
   function showModal() {
+    $('#map').css({ // to bring the map back which was displaying when it wasn't allowed to
+      'position': 'relative',
+      'left': '0px'
+    });
+
     $('.black-overlay').css({
       'visibility': 'visible'
     })
@@ -113,11 +145,17 @@ function ScreenManager(container) {
     })
   }
 
+
+  //////////////////////
+ // PUBLIC FUNCTIONS //
+//////////////////////
+
   return {
     showMainScreen: function(apptStore) {
       hideModal();
       container.html($('#main-screen').html());
       populateMainScreen(apptStore);
+      initializeSearchBar(apptStore);
     },
 
     showNewScreen: function() {
