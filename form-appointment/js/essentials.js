@@ -10,25 +10,6 @@ function toggleClass(element, className) {
 	}
 }
 
-// Makes an image preview before submit
-
-// function readURL(input) {
-
-//     // if (input.files && input.files[0]) {
-//         var reader = new FileReader();
-
-//         reader.onload = function (e) {
-//             $('.chosen-avatar').attr('src', e.target.result);
-//         }
-
-//         reader.readAsDataURL(input.files[0]);
-//     // }
-// }
-
-// $(".file-maker").change(function(){
-//     readURL(this);
-// });
-
 // Makes an SVG edittable
 
 $('img.svg').each(function(){
