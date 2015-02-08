@@ -24,7 +24,12 @@ function Appointment(spec) {
     },
 
     getTimeDisplay: function() {
-      var timeStr = this.hours + ':' + this.minutes;
+      var timeStr = '';
+      if (this.hours === '0') {
+        timeStr += '12' + ':' + this.minutes;
+      } else {
+        timeStr += this.hours + ':' + this.minutes;
+      }
       if (this.amPm === '12') {
         return timeStr += ' pm';
       } else {
