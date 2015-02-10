@@ -222,33 +222,6 @@ function resizeCityInput () {
 
 }
 
-// function setCalendarMargin () {
-
-// 	function callEl (el) {
-// 		return {
-// 			elName: function () {
-// 				return document.querySelector(el);
-// 			},
-
-// 			elWidth: function () {
-// 				return document.querySelector(el).offsetWidth;
-// 			}
-// 		}
-// 	}
-
-// 	var searchDivWidth = callEl('.search-div').elWidth();
-// 	// 11px comes from the padding
-// 	var searchInputWidth = callEl('.search-input').elWidth() + 11;
-// 	// the 5 and 11 are experimented numbers
-// 	var marginLeftNumber = ((searchInputWidth - searchDivWidth) / 5) + 11;
-
-// 	var calendarSvg = callEl('.calendar-svg').elName();
-// 	calendarSvg.style.marginLeft = marginLeftNumber + 'px';
-
-// }
-
-// setCalendarMargin();
-
 
 
 
