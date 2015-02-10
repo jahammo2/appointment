@@ -73,20 +73,9 @@ body {
 	margin-right: 4.3%;
 	margin-top: -1.5%;
 }
-/*.logo-span {
-	-webkit-flex: .5;
-}
-
-.calendar-svg {
-	width: 100%;
-	height: 15%;
-	margin-top: 3%;
-	margin-left: 33px;
-}*/
 
 .logo-span {
 	-webkit-flex: .5;
-/*	position: relative;*/
 	margin-left: 5.75%;
 	background: transparent;
 	height: 70%;
