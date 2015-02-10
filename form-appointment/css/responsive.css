@@ -1,4 +1,4 @@
-@media screen and (min-width:550px) {
+@media screen and (min-width:450px) {
 
 	html,
 	body {
@@ -27,7 +27,33 @@
 		height: 115%;
 	}
 
+	.title-span {
+		margin-top: 3%;
+	}
+
+	.new-appt-button {
+		margin-top: -2%;
+	}
+
 }
+
+
+
+/*@media screen and (min-width: 450px) and (max-width: 550px) {
+	.state-choice {
+		padding-top: 5px;
+		height: 38px;
+	}
+
+	.state-choice-label:after {
+		top: 0px;
+		padding:0 2px 2px 8px;
+	}
+
+	.state-choice-label:before {
+		top: -9px;
+	}
+}*/
 
 
 
@@ -44,7 +70,8 @@
 	}
 
 	.appt-title-span {
-		margin-top: 5%;
+		padding-top: 4.5%;
+		margin-top: 0%;
 	}
 
 	.appt-label:before {
@@ -80,31 +107,23 @@
 
 
 
-@media screen and (min-width: 450px) and (max-width: 550px) {
-	.state-choice {
-		padding-top: 5px;
-		height: 38px;
-	}
-
-	.state-choice-label:after {
-		top: 0px;
-		padding:0 2px 2px 8px;
-	}
-
-	.state-choice-label:before {
-		top: -9px;
-	}
-}
-
-
-
 @media screen and (max-width: 340px) {
 	.time-span {
 		font-size: 130%;
 	}
 
+	.title-span {
+		font-size: 100%;
+		margin-top: 0%;
+	}
+
 	.appt-title-span {
-		margin-top: 6%;
+		padding-top: 0%;
+		margin-top: 0%;
+	}
+
+	.appt-title-span {
+		padding-top: .58em;
 	}
 }
 
