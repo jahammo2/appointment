@@ -23,37 +23,19 @@
 		margin-right: -1%;
 	}
 
-	.black-overlay {
-		height: 115%;
-	}
-
 	.title-span {
-		margin-top: 3%;
+		margin-top: 3.5%;
 	}
 
 	.new-appt-button {
 		margin-top: -2%;
 	}
 
+	.back-button {
+		margin-top: -1.5%;
+	}
+
 }
-
-
-
-/*@media screen and (min-width: 450px) and (max-width: 550px) {
-	.state-choice {
-		padding-top: 5px;
-		height: 38px;
-	}
-
-	.state-choice-label:after {
-		top: 0px;
-		padding:0 2px 2px 8px;
-	}
-
-	.state-choice-label:before {
-		top: -9px;
-	}
-}*/
 
 
 
@@ -65,12 +47,13 @@
 	}
 
 	.title-span {
-		font-size: 87%;
-		margin-top: 3.6%;
+		font-size: 100%;
+		margin-top: 3.92%;
 	}
 
 	.appt-title-span {
-		padding-top: 4.5%;
+		font-size: 95%;
+		padding-top: 4%;
 		margin-top: 0%;
 	}
 
@@ -103,28 +86,40 @@
 		top: -8px;
 	}
 
+	.back-button {
+		width: 10%;
+	}
+
 }
 
 
 
 @media screen and (max-width: 340px) {
+
 	.time-span {
 		font-size: 130%;
 	}
 
 	.title-span {
 		font-size: 100%;
-		margin-top: 0%;
+		margin-top: 0;
+		padding-top: 4.5%;
 	}
 
 	.appt-title-span {
-		padding-top: 0%;
-		margin-top: 0%;
+		font-size: 90%;
+		padding-top: .69em;
 	}
 
-	.appt-title-span {
-		padding-top: .58em;
+	.new-appt-button {
+		margin-right: 3.8%;
+		margin-top: -1.5%;
 	}
+
+	.back-button {
+		width: 11%;
+	}
+
 }
 
 

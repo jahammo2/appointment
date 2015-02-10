@@ -147,14 +147,13 @@ function ScreenManager(container) {
       'visibility': 'visible'
     })
 
-    if (window.innerWidth > 550) {
+    if (window.innerWidth > 450) {
 
       var marginNumber = (window.innerWidth - 400) / 2;
-      console.log(marginNumber);
 
       $('.deats-wrapper').css({
         'visibility': 'visible',
-        'height': '59%',
+        'height': '69%',
         'width': '300px',
         'top': '20%',
         'right': (50 + marginNumber) + 'px',
@@ -185,6 +184,31 @@ function ScreenManager(container) {
     }
   }
 
+  function setCalendarMargin () {
+
+    function callEl (el) {
+      return {
+        elName: function () {
+          return document.querySelector(el);
+        },
+
+        elWidth: function () {
+          return document.querySelector(el).offsetWidth;
+        }
+      }
+    }
+
+    var searchDivWidth = callEl('.search-div').elWidth();
+    // 11px comes from the padding
+    var searchInputWidth = callEl('.search-input').elWidth() + 11;
+    // the 5 and 11 are experimented numbers
+    var marginLeftNumber = ((searchInputWidth - searchDivWidth) / 5) + 11;
+
+    var calendarSvg = callEl('.calendar-svg').elName();
+    calendarSvg.style.marginLeft = marginLeftNumber + 'px';
+
+  }
+
 
   //////////////////////
  // PUBLIC FUNCTIONS //
@@ -194,6 +218,7 @@ function ScreenManager(container) {
     showMainScreen: function(apptStore) {
       hideModal();
       container.html($('#main-screen').html());
+      setCalendarMargin();
       populateMainScreen(apptStore);
       initializeSearchBar(apptStore);
     },
