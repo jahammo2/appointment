@@ -75,7 +75,7 @@
     <script type="schmoo" id="main-screen">
       <div class="title-div">
         <span class="logo-span">
-          <svg class="calender-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="100px" height="100px" viewBox="5.0 -10.0 100.0 135.0" enable-background="new 0 0 100 100" xml:space="preserve">
+          <svg class="calendar-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="100px" height="100px" viewBox="5.0 -10.0 100.0 135.0" enable-background="new 0 0 100 100" xml:space="preserve">
           <g>
             <rect x="65.945" y="43.337" fill="#000000" width="6.493" height="6.736"/>
           </g>
@@ -127,7 +127,7 @@
           <g>
             <rect x="27.975" y="71.512" fill="#000000" width="6.489" height="6.734"/>
           </g>
-          <path fill="#000000" d="M75.435,14.846v11.409H63.513V14.846H37.246v11.409h-11.89V14.846H11.883V91.71h76.864V14.846H75.435z   M82.302,85.265H18.328V35.342h63.974V85.265z"/>
+          <path class="calendar-path" fill="#000000" d="M75.435,14.846v11.409H63.513V14.846H37.246v11.409h-11.89V14.846H11.883V91.71h76.864V14.846H75.435z   M82.302,85.265H18.328V35.342h63.974V85.265z"/>
           <rect x="66.264" y="4.35" fill="#000000" width="6.427" height="19.082"/>
           <rect x="27.975" y="4.35" fill="#000000" width="6.427" height="19.082"/>
           </svg>
@@ -141,7 +141,22 @@
       </div>
       <div class="list">
         <ul class="appt-list">
-          
+          <li class="appointment-list-item">
+            <div class="click-4-deats">
+              <div class="column time-weather-div">
+                <span class="time-span">T:ME</span>
+                <span class="weather-span">56</span>
+              </div>
+              <div class="column title-place-div">
+                <span class="li-title-span">TITLE</span>
+                <span class="place-span">ADDRESS</span>
+              </div>
+            </div>
+            <div class="icon-div delete-div">
+              <i class="fa fa-trash-o main-trash"></i>
+            </div>
+          </li>
+
         </ul>
       </div>
     </script>
