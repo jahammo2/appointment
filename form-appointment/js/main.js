@@ -1,4 +1,3 @@
-
 var wrapper = $('.wrapper'); // identifying the main display element in a variable
 var apptStore = ObjectStore(); // instancing an an object store to manage our appts
 var screenManager = ScreenManager(wrapper);
@@ -42,13 +41,6 @@ wrapper.on('click', '.new-appt-button', function(e) { // making the new appt but
 			$('.error-message-fill').text('*Invalid date!');
 			return;
 		}
-		// var newFormattedFullDate = newDate.format('MMMM D')
-		// var newDateFromNow = newDate.fromNow()
-		// dateLabel.val(newFormattedFullDate);
-		// console.log(newDateFromNow);
-		// $('.deats-date-time-span').html(newDateFromNow + ' on');
-		// $('.deats-full-date-time-span').html(newFormattedFullDate);
-		// var dateInMs = newDate.format('x');
 
 		apptStore.addSort(createAppt(newDate), sortLogic);
 
