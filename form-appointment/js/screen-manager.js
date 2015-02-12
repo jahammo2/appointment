@@ -169,7 +169,7 @@ function ScreenManager(container) {
 
       $('.deats-wrapper').css({
         'visibility': 'visible',
-        'height': '59%',
+        'height': '69%',
         'width': '80%',
         'top': '12%',
         'right': '10%',
