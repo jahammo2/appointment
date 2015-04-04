@@ -27,7 +27,7 @@ wrapper.on('click', '.new-appt-button', function(e) { // making the new appt but
 		e.preventDefault();
 
 		if (!isFormValid()) {
-			alert('all fields are required');
+			$('.error-message-fill').text('*All fields are required!');
 			return;
 		}
 
@@ -39,16 +39,9 @@ wrapper.on('click', '.new-appt-button', function(e) { // making the new appt but
 		newDate.minutes(Number($('.time-minutes').val()));
 
 		if (!newDate.isValid() || newDate.isBefore(moment(new Date()))) {
-			alert('invalid date');
+			$('.error-message-fill').text('*Invalid date!');
 			return;
 		}
-		// var newFormattedFullDate = newDate.format('MMMM D')
-		// var newDateFromNow = newDate.fromNow()
-		// dateLabel.val(newFormattedFullDate);
-		// console.log(newDateFromNow);
-		// $('.deats-date-time-span').html(newDateFromNow + ' on');
-		// $('.deats-full-date-time-span').html(newFormattedFullDate);
-		// var dateInMs = newDate.format('x');
 
 		apptStore.addSort(createAppt(newDate), sortLogic);
 
@@ -228,3 +221,12 @@ function resizeCityInput () {
 
 
 }
+
+
+
+
+
+
+
+
+
