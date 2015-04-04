@@ -5,11 +5,11 @@ I worked with Ben Roaman on this project. He handled most of the javascript and 
 
 ## Technologies Used:
 
--jquery
--js
--css
+- jquery
+- js
+- css
 
-######Update on feedback:
+###### Update on feedback:
 I realize that alot of my styling issues on cell phones come from utilizing margin vice padding correctly.
 
 ## The assignment can be found here:
